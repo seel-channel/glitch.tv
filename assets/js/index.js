@@ -14,14 +14,17 @@ function rmClass(id, className) {
   getElement(id).classList.remove(className);
 }
 
-function createCard(cardsData, gridID) {
-  var htmlTemplate = ``;
+function ifNull(ifNull, ifNotNull) {
+  return ifNull == null ? ifNotNull : ifNull;
+}
 
+function createCard(cardsData, gridID, openPage) {
+  var htmlTemplate = ``;
   for (const id in cardsData) {
     let path = cardsData[id].path + "/poster.jpg";
-    let moviePath =
-      "./pelicula.html?" +
-      cardsData[id].title.toLowerCase().replaceAll(" ", "-");
+    let moviePath = `./${openPage}?${cardsData[id].title
+      .toLowerCase()
+      .replaceAll(" ", "-")}`;
     htmlTemplate += `
         <div class="glitch_card_content glitch_card_width">
           <a
@@ -64,20 +67,28 @@ function createCard(cardsData, gridID) {
   insertHTML(gridID, htmlTemplate);
 }
 
-function createCatalog(initIndex, show, IDInsert, database) {
-  var dataList = database == null ? moviesDataBase() : database;
+function createCatalog(initIndex, show, IDInsert, database, toOpen) {
   var cards = [];
+  var openPage = ifNull(toOpen, "pelicula.html");
+  var dataList = ifNull(database, moviesDataBase());
   var maxIndex =
     dataList.length < initIndex + show ? dataList.length : initIndex + show;
   for (var i = initIndex; i < maxIndex; i++) {
     cards.push(dataList[i]);
   }
-  createCard(cards, IDInsert == null ? "cards_grid" : IDInsert);
+  createCard(cards, ifNull(IDInsert, "cards_grid"), openPage);
 }
 
 function loadMovie() {
-  var encontrado = false;
-  var movies = moviesDataBase();
+  loadVideoContent(moviesDataBase(), "./catalogo_peliculas.html");
+}
+
+function loadAnime() {
+  loadVideoContent(animesDataBase(), "./catalogo_animes.html");
+}
+
+function loadVideoContent(database, hrefNotFound) {
+  var found = false;
   var name = window.location.search;
   var cleanName = name
     .replaceAll("?", "")
@@ -89,30 +100,30 @@ function loadMovie() {
     .replaceAll("%C3%AD", "í")
     .replaceAll("%C3%B3", "ó");
 
-  for (const id in movies) {
-    if (cleanName == movies[id].title.toLowerCase()) {
-      insertHTML("movie_title", `${movies[id].title} (${movies[id].year})`);
-      insertHTML("movie_gender", movies[id].subtitle);
-      insertHTML("movie_year", movies[id].year);
-      insertHTML("movie_sinopsis", movies[id].sinopsis);
+  for (const id in database) {
+    if (cleanName == database[id].title.toLowerCase()) {
+      insertHTML("movie_title", `${database[id].title} (${database[id].year})`);
+      insertHTML("movie_gender", database[id].subtitle);
+      insertHTML("movie_year", database[id].year);
+      insertHTML("movie_sinopsis", database[id].sinopsis);
       getElement("movie_poster").setAttribute(
         "src",
-        `${movies[id].path}/poster.jpg`
+        `${database[id].path}/poster.jpg`
       );
       getElement("player").setAttribute(
         "poster",
-        `${movies[id].path}/banner.jpg`
+        `${database[id].path}/banner.jpg`
       );
       getElement("video_source").setAttribute("src", "");
-      getElement("circular_loader").style.display = "none";
       getElement("principal_section").style.display = "";
-      document.title = `Glitch.TV - ${movies[id].title}`;
-      encontrado = true;
+      getElement("circular_loader").style.display = "none";
+      document.title = `Glitch.TV - ${database[id].title}`;
+      found = true;
       break;
     }
   }
-  if (!encontrado) {
-    window.location.href = "./catalogo_peliculas.html";
+  if (!found) {
+    window.location.href = hrefNotFound;
   }
 }
 
@@ -152,7 +163,7 @@ function showMoviesCatalog() {
 }
 
 function showAnimesCatalog() {
-  createCatalog(0, 15, "cards_grid", animesDataBase());
+  createCatalog(0, 15, "cards_grid", animesDataBase(), "anime.html");
   getElement("circular_loader").style.display = "none";
   getElement("principal_section").style.display = "";
 }

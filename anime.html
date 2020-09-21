@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Cargando...</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="./assets/css/plyr.css" />
+    <link rel="stylesheet" href="./assets/css/index.css" />
+    <link rel="stylesheet" href="./assets/css/reusable.css" />
+
+    <style>
+      body {
+        background: radial-gradient(
+          ellipse farthest-corner at center top,
+          rgb(170, 0, 78) 0%,
+          rgb(109, 0, 166) 100%
+        );
+      }
+    </style>
+  </head>
+
+  <body onload=" loadAnime(); cambiarVideoTenseiShitaraSlime(1);">
+    <header class="content_nav">
+      <a
+        href="./index.html"
+        class="glitch_nav_text no_select"
+        data-glitch="Glitch.TV"
+        >Glitch.TV</a
+      >
+      <nav class="flex_row center_flex">
+        <a class="navigation_element" href="./catalogo_peliculas.html"
+          >Películas</a
+        >
+        <a class="navigation_element" href="./catalogo_series.html">Series</a>
+        <a class="navigation_element" href="./catalogo_animes.html">Animes</a>
+      </nav>
+    </header>
+
+    <div id="circular_loader" class="circular_loader"><div></div></div>
+
+    <section
+      id="principal_section"
+      class="flex_column center_flex"
+      style="padding: 60px 0"
+    >
+      <div class="movie_info_container">
+        <div class="flex_row">
+          <div class="movie_poster">
+            <img id="movie_poster" />
+          </div>
+          <div style="margin: 0 30px; width: 200px">
+            <h1 id="movie_title" class="movie_title mg_bottom"></h1>
+            <ul class="movie_details">
+              <li>Género: <span id="movie_gender"></span></li>
+              <li>Año de estreno: <span id="movie_year"></span></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="movie_sinopsis justify_text">
+          <h1 class="mg_bottom" style="text-align: center">Sinopsis</h1>
+          <span id="movie_sinopsis"> </span>
+        </div>
+      </div>
+
+      <div class="pagination no_select">
+        <a onclick="anteriorCapituloTenseiShitaraSlime();"><b>&laquo;</b></a>
+        <a class="listacapitulos active">
+          Lista de capítulos
+          <select
+            id="selectcapitulo"
+            style="margin-top: 10px"
+            onchange="cambiarVideoTenseiShitaraSlime(this.value);"
+          >
+            <option value="1">Capítulo 1</option>
+            <option value="2">Capítulo 2</option>
+            <option value="3">Capítulo 3</option>
+            <option value="4">Capítulo 4</option>
+            <option value="5">Capítulo 5</option>
+            <option value="6">Capítulo 6</option>
+            <option value="7">Capítulo 7</option>
+            <option value="8">Capítulo 8</option>
+            <option value="9">Capítulo 9</option>
+            <option value="10">Capítulo 10</option>
+            <option value="11">Capítulo 11</option>
+            <option value="12">Capítulo 12</option>
+            <option value="13">Capítulo 13</option>
+            <option value="14">Capítulo 14</option>
+            <option value="15">Capítulo 15</option>
+            <option value="16">Capítulo 16</option>
+            <option value="17">Capítulo 17</option>
+            <option value="18">Capítulo 18</option>
+            <option value="19">Capítulo 19</option>
+            <option value="20">Capítulo 20</option>
+            <option value="21">Capítulo 21</option>
+            <option value="22">Capítulo 22</option>
+            <option value="23">Capítulo 23</option>
+            <option value="24">Capítulo 24</option>
+            <option value="25">Capítulo 25</option>
+          </select>
+        </a>
+        <a onclick="siguienteCapituloTenseiShitaraSlime();"><b>&raquo;</b></a>
+      </div>
+
+      <h1 id="capitulo-titulo" style="text-transform: uppercase">Capítulo 1</h1>
+
+      <div class="video_container">
+        <video id="player" controls playsinline poster="">
+          <source id="video_source" type="video/mp4" />
+        </video>
+      </div>
+    </section>
+
+    <script src="./assets/js/plyr.js"></script>
+    <script src="./assets/js/index.js"></script>
+    <script src="./assets/js/plyrplayer.js"></script>
+    <script src="./assets/js/selectordecapitulo.js"></script>
+  </body>
+</html>

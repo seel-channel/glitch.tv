@@ -1,0 +1,832 @@
+@font-face {
+  /*Vincula una funete que se utiliza para el logotipo de la página*/
+  font-family: "Rhino Sans";
+  src: url("../fonts/Rhino_Sans.ttf");
+}
+
+@font-face {
+  /*Es la funete que guarda los iconos*/
+  font-family: "FontAwesome";
+  src: url("../fonts/fontawesome-icons.woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+html {
+  /*Asigna un contraste del 110% a todo el documento y un font-size de 18px*/
+  font-size: 18px;
+  text-align: center;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  filter: contrast(110%);
+}
+
+body {
+  /*Asigna un fondo gradiente de rosa a morado con Questrial como fuente principal*/
+  color: black;
+  margin: 0px;
+  font-family: "Questrial", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  background: #0c141f;
+  background: radial-gradient(
+    ellipse farthest-corner at center top,
+    rgb(170, 0, 78) 0%,
+    rgb(109, 0, 166) 100%
+  );
+}
+
+/*==========================================
+  INICIO: Navegación
+===========================================*/
+
+/*==========================================
+    INICIO: Menú para moviles (Navegador lateral)
+  ===========================================*/
+#nav {
+  /*Es el layer que contrendrá la lista de los elementos de la barra lateral, le dará un fondo de color morada y una box-shadow para dar profundidad. Estará oculto a la izquierda*/
+  position: absolute;
+  z-index: 999;
+  background: #241734;
+  width: 300px;
+  height: 110vh;
+  overflow-y: auto;
+  transition-property: transform;
+  transition-duration: 0.4s;
+  transform: translateX(-400px);
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-box-shadow: 0 50px 25px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 0 50px 25px 0 rgba(0, 0, 0, 0.5);
+}
+
+#nav .glitch-nav-text /*Al logo del sitio le quitará un margen izquierdo para que se centre a la pantalla*/ {
+  margin-left: -115%;
+  font-size: 50px;
+}
+
+#nav a /*A los elementos de "a" (lugares del sitio) lo centrará quitandole un margen izquierdo*/ {
+  margin-left: -5%;
+}
+
+#nav.open {
+  /*Es la clase que se ejecutará con JS para mostrar el menú lateral al darle click al boton ID=#btn*/
+  transform: translateX(0);
+}
+
+.nav-list li {
+  /*Alineará y separará a cada elemento de la lista para verse mas estético*/
+  padding: 0;
+  margin-top: 40px;
+  font-size: 20px;
+  font-family: monospace;
+  color: #ef8625;
+  list-style: none;
+}
+
+#btn {
+  /*Es el bloque que ocultará el botón para que no sea visualizado cuando el menu principal (horizontal) esta activo*/
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.hamburger {
+  /*Este bloque contendrá el botón y sus otros elementos que permitirán abrir el navegar lateral*/
+  padding: 15px 15px;
+  margin: 5px;
+  display: inline-block;
+  cursor: pointer;
+  transition-property: opacity, filter;
+  transition-duration: 0.15s;
+  transition-timing-function: linear;
+  font: inherit;
+  color: #d2006a;
+  text-transform: none;
+  background-color: transparent;
+  border: 0;
+  margin: 0;
+  overflow: visible;
+  outline: none;
+}
+
+.hamburger button {
+  /*Este el botón invisible que ejecutará las indicaciones (Abrir el menú lateral: Funcion toggle();)*/
+  color: #d2006a;
+  background: transparent;
+  border: none;
+  font-family: monospace;
+  text-transform: uppercase;
+  font-size: 20px;
+  padding: 10px 20px;
+  position: absolute;
+}
+
+.hamburger:hover {
+  /*Al postrar el mouse se le bajará la opacidad*/
+  opacity: 0.7;
+}
+
+.hamburger-box {
+  /*Es el que delimitará el tamanño del icono*/
+  width: 40px;
+  height: 24px;
+  display: inline-block;
+  position: relative;
+}
+
+.hamburger-inner {
+  /*Es el icono que de la hamburguesa (Las 3 líneas horizontales)*/
+  display: block;
+  top: 50%;
+  margin-top: 5px;
+  margin-left: 25%;
+}
+
+.hamburger-inner,
+.hamburger-inner::before,
+.hamburger-inner::after {
+  /*Crea la primera línea */
+  width: 30px;
+  height: 4px;
+  background-color: #d2006a;
+  border-radius: 4px;
+  position: absolute;
+  transition-property: transform;
+  transition-duration: 0.15s;
+  transition-timing-function: ease;
+}
+
+.hamburger-inner::before,
+.hamburger-inner::after {
+  /*Bloquea el contenido de la clase .hamburger-inner*/
+  content: "";
+  display: block;
+}
+
+.hamburger--slider {
+  /*Le asigna una transicion a la animación del menu lateral */
+  transition: 300ms;
+}
+.hamburger--slider.is-active {
+  /*Al desplegar el menú lateral, el icono de cerrar se mueve a la derecha para lograr cerrar el menu*/
+  transform: translate(400%);
+}
+
+.hamburger--slider .hamburger-inner {
+  /*Centra el menu (3 lineas) a la distancia del botón de buscar*/
+  top: 5px;
+}
+.hamburger--slider .hamburger-inner::before {
+  /*Alinea las 2 líneas superior */
+  top: 10px;
+  transition-property: transform, opacity;
+  transition-timing-function: ease;
+  transition-duration: 0.2s;
+}
+.hamburger--slider .hamburger-inner::after {
+  /*Le asigna la tercera línea*/
+  top: 20px;
+}
+
+.hamburger--slider.is-active .hamburger-inner {
+  /*Transformara las 3 líneas en una X para cerrar el menu*/
+  transform: translate3d(0, 10px, 0) rotate(45deg);
+}
+.hamburger--slider.is-active .hamburger-inner::before {
+  /*Transformara las 3 líneas en una X para cerrar el menu*/
+  transform: rotate(-45deg) translate3d(-5.71429px, -6px, 0);
+  opacity: 0;
+}
+.hamburger--slider.is-active .hamburger-inner::after {
+  /*Transformara las 3 líneas en una X para cerrar el menu*/
+  transform: translate3d(0, -20px, 0) rotate(-90deg);
+}
+
+/*==========================================
+    FIN: Menú para moviles (Navegador lateral)
+  ===========================================*/
+
+.container {
+  /*Es el contenedor que acumulara los elementos del menu horizontal*/
+  display: grid;
+  grid-template-columns: minmax(1em, 1fr) minmax(-webkit-min-content, 1200px) minmax(
+      1em,
+      1fr
+    );
+  grid-template-columns: minmax(1em, 1fr) minmax(min-content, 1200px) minmax(
+      1em,
+      1fr
+    );
+  grid-template-areas: "l-gutter heading r-gutter" "l-gutter content r-gutter";
+  grid-row-gap: 1em;
+}
+
+.content-nav {
+  /*Es el div que engloba todo el navegador, el cual tiene una prioridad de 10, un margen superior de 30px y un sombra negra hacia abajo*/
+  background-color: #241734;
+  -webkit-box-shadow: 0 5px 25px 0 rgba(0, 0, 0, 0.4);
+  box-shadow: 0 5px 25px 0 rgba(0, 0, 0, 0.4);
+  margin-bottom: 30px;
+  position: relative;
+  z-index: 100;
+}
+
+.grid-nav {
+  /*Son una regillas que alinean que dividen los elementos dentro de ella, le asigna un margen inferior de 2em y un separacion del 30%*/
+  display: grid;
+  grid-template-columns: 1.6fr 0.2fr 0.2fr 0.2fr 1.5fr;
+  grid-gap: calc(2em + 2vh) calc(1.5em + 1vmin);
+  grid-auto-flow: row dense;
+  grid-area: content;
+  margin-bottom: 2em;
+}
+.glitch-nav-text {
+  /*Es es el texto del logo "Glitch.TV". Asigan la familia Rhino Sans con peso de 700 y un tamaño de 60px. 
+Su texto se eleva a mayúsculas y transforma al texto para moverse al centro de la pantalla. Da un espaciado de 5px y diversos margenes para centrarlo.
+Por ultimo unas sombras y una transicion de 100ms*/
+  font-family: "Rhino Sans", sans-serif;
+  font-weight: 700;
+  font-size: 60px;
+  text-decoration: none;
+  text-transform: uppercase;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  margin: 0;
+  color: #fff;
+  letter-spacing: 5px;
+  margin-top: 4px;
+  margin-bottom: -20px;
+  text-shadow: 1px 1px 1px #e87400, 2px 2px 2px #e87400, 3px 3px 3px #e87400,
+    5px 5px 5px #ff0090, 7px 7px 7px #660066;
+
+  transition: 100ms;
+}
+.glitch-nav-text:before,
+.glitch-nav-text:after {
+  /*Permite llevar a acabo la animación del hover*/
+  display: block;
+  content: attr(data-glitch);
+  text-transform: uppercase;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0.8;
+}
+
+.glitch-nav-text:after {
+  /*Cambia de color el texto que se mueve atras del logo a azul*/
+  color: #f0f;
+  z-index: -2;
+}
+.glitch-nav-text:before {
+  /*Cambia de color el texto que se mueve atras del logo a rosa*/
+  color: #0ff;
+  z-index: -1;
+}
+.glitch-nav-text:hover:before {
+  /*Este lleva a cabo la animación de Glitch cada 0.35s y de manera infinita*/
+  -webkit-animation: glitch 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+  animation: glitch 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+}
+.glitch-nav-text:hover:after {
+  /*Este lleva a cabo la animación de Glitch cada 0.35s y de manera infinita pero al reves*/
+  animation: glitch 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse infinite;
+}
+
+@-webkit-keyframes glitch {
+  /*Este es el codigo para navegador diferentes al chrome que lleva a cabo la animación de movimiento del logo. Lo que hace es cada 20% mueve
+  el texto a diferentes posiciones*/
+  0% {
+    -webkit-transform: translate(0);
+    transform: translate(0);
+  }
+  20% {
+    -webkit-transform: translate(-20px, 20px);
+    transform: translate(-20px, 20px);
+  }
+  40% {
+    -webkit-transform: translate(-20px, -20px);
+    transform: translate(-20px, -20px);
+  }
+  60% {
+    -webkit-transform: translate(20px, 20px);
+    transform: translate(20px, 20px);
+  }
+  80% {
+    -webkit-transform: translate(20px, -20px);
+    transform: translate(20px, -20px);
+  }
+  to {
+    -webkit-transform: translate(0);
+    transform: translate(0);
+  }
+}
+@keyframes glitch {
+  /*Este es el codigo para navegador diferentes al chrome que lleva a cabo la animación de movimiento del logo. Lo que hace es cada 20% mueve
+  el texto a diferentes posiciones*/
+  0% {
+    -webkit-transform: translate(0);
+    transform: translate(0);
+  }
+  20% {
+    -webkit-transform: translate(-2px, 2px);
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    -webkit-transform: translate(-2px, -2px);
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    -webkit-transform: translate(2px, 2px);
+    transform: translate(2px, 2px);
+  }
+  80% {
+    -webkit-transform: translate(2px, -2px);
+    transform: translate(2px, -2px);
+  }
+  to {
+    -webkit-transform: translate(0);
+    transform: translate(0);
+  }
+}
+
+.navigation {
+  /*Engloba los puntos a navegar y los alinea al centro*/
+  justify-content: center;
+}
+
+.element-navigation {
+  /*Se emplea para cada elemento del navigation dandole un margen de izquierda y derecha de 18px y le quita el subrayado*/
+  text-decoration: none;
+  margin-right: 18px;
+  margin-left: 18px;
+  color: white;
+  transition: 400ms;
+  font-size: 20px;
+}
+
+.element-navigation:hover {
+  /*Al hacer el hover se le activa el subrayado y se le aplica un sombra*/
+  text-decoration: underline;
+  text-shadow: -2px 0 #b300fc;
+  text-shadow: -2px 0 2px #b300fc;
+}
+
+.abajo {
+  -webkit-transform: translate(0%, 50%);
+  transform: translate(0%, 50%);
+}
+/*==========================================
+    Inicio: Buscador
+  ===========================================*/
+
+.overlay {
+  /*Es la interfaz que se situará atras de todos los elementos de la busqueda*/
+  height: 100%;
+  width: 100%;
+  display: none;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  transition: 300ms;
+  background-color: rgba(0, 0, 0, 0.85);
+}
+
+.overlay-content {
+  /*Almacenará todos los elementos en la busqueda (textbox, boton buscar, boton cerrar, y el texto "¿Qué estas buscando?")*/
+  position: relative;
+  top: 45%;
+  left: 10%;
+  width: 80%;
+  transition: 300ms;
+  text-align: center;
+  margin-top: 30px;
+  margin: auto;
+}
+
+.overlay .closebtn {
+  /*Es el diseño que tendrá el boton de cerrar la busqueda*/
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+  cursor: pointer;
+  color: white;
+  transition: 300ms;
+}
+
+.overlay .closebtn:hover {
+  /*Al precionar el boton se le cambiará el color blanco a uno gris*/
+  color: #ccc;
+  transform: scale(1.08);
+}
+
+.texto-buscar {
+  /*Este es el texto "¿Qué estas buscando?" que aparece de color blanco*/
+  color: white;
+  font-size: 40px;
+  font-weight: 700;
+  margin-left: -25%;
+  margin-top: -10%;
+  margin-bottom: 10%;
+}
+
+.overlay input {
+  /*Es la propiedad que tendrá el texbox donde se guardará el texto a buscar*/
+  padding: 15px;
+  font-size: 17px;
+  border: none;
+  float: left;
+  width: 63%;
+  background: white;
+  border-radius: 5px;
+}
+
+.overlay button {
+  /*Le asignará un fondo blanco y un texto de color negro */
+  float: left;
+  width: 10%;
+  padding: 15px;
+  background: #ddd;
+  font-size: 17px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-left: -1%;
+}
+
+.overlay button:hover {
+  /*Se le cambiará el color de fondo al postrar el mouse*/
+  background: #bbb;
+}
+
+.search-wrapper {
+  /*Contendrá el icono de buscar, lo centrará y le pondrá un posición abusoluta para no moverse*/
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 75%;
+}
+
+.search-icon {
+  /*Esta es el boton invisible que podrá ejecutar las indicaciones ya que la etiqueca "i" de icono no permite hacer eso*/
+  width: 40px;
+  height: 40px;
+  margin: 5px;
+  margin-left: 5px;
+  border: none;
+  background: rgba(255, 255, 255, 0);
+  padding: 0px;
+  outline: none;
+  position: relative;
+  z-index: 2;
+  float: right;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.search-icon span {
+  /*Es la propiedad que diseña el icono de buscar (lupa) en un span y le da una rotación*/
+  width: 22px;
+  height: 22px;
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  transform: rotate(45deg);
+  transition: all 0.4s cubic-bezier(0.65, -0.6, 0.24, 1.65);
+}
+.search-icon span::before {
+  /*Le asigna el color el color morado y otras propiedades como margenes al icono de buscar*/
+  position: absolute;
+  content: "";
+  width: 4px;
+  height: 11px;
+  left: 9px;
+  top: 18px;
+  border-radius: 2px;
+  background: #d2006a;
+}
+.search-icon span::after {
+  /*Le asigna el color el color morado y otras propiedades como margenes al icono de buscar*/
+  position: absolute;
+  content: "";
+  width: 14px;
+  height: 14px;
+  left: 0px;
+  top: 0px;
+  border-radius: 16px;
+  border: 4px solid #d2006a;
+}
+/*==========================================
+    FIN: Buscador
+  ===========================================*/
+
+.usuario-wrapper {
+  /*Contendrá el icono de usuario, lo centrará y le pondrá un posición abusoluta para no moverse*/
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 80%;
+}
+
+.usuario-wrapper button {
+  /*Al boton que contendrá el icono, lo hará invisible, le quitará el borde y al pasar el cursor se pondrá para seleccionar (Pulsor)*/
+  background: transparent;
+  outline: none;
+  cursor: pointer;
+  border: none;
+}
+.usuario-icono:before {
+  /*Esta clase manda llamar la fuente "FontAwesome0" y despues le asigna el contenido "\f007" que es icono de usuario*/
+  font-family: "FontAwesome", sans-serif;
+  content: "\f007";
+  color: white;
+  font-size: 25px;
+  color: #d2006a;
+}
+
+/*==========================================
+  FIN: Navegación
+===========================================*/
+
+/*==========================================
+  INCIO: Datos de la película
+===========================================*/
+.movie-container {
+  /*Es el contenedor de la imagen, sinopsis y los detalles de la película. Su fondo lo vuelve transparente y sus esquinas las redondea*/
+  max-width: 1000px;
+  margin: 0 auto;
+  background-color: rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 5px 25px 0 rgba(0, 0, 0, 0.4);
+  box-shadow: 0 5px 25px 0 rgba(0, 0, 0, 0.4);
+  margin-bottom: 30px;
+  position: relative;
+  border-radius: 6px;
+}
+
+.grid-movie-details {
+  /*Es una rejilla que separá a la imagen, datos de la película y la sinopsis*/
+  display: grid;
+  grid-template-columns: 0.4fr 0.7fr 1fr;
+  padding: 3% 4% 3% 4%;
+}
+
+.movie-image img {
+  /*Este acomodorá el poster de la imagen dandole una altura de 260 px y una anchura de 180px con un box shadow*/
+  text-align: left;
+  margin: 0;
+  padding: 0;
+  transition: 350ms;
+  -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.6);
+  box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.6);
+  width: 180px;
+  height: 260px;
+  border-radius: 5px;
+}
+
+.movie-image:hover img {
+  /*Al postrar el mouse sobre la imagen esta se hará mas grande*/
+  transform: scale(1.08);
+}
+
+.movie-content {
+  /*Guardará el título de la película y sus datos técnicos con un paneo izquierdo de 10%*/
+  padding-left: 10%;
+}
+
+.movie-title {
+  /*Es el estilo que tendrá el título de la película con un color blanco y un espaciado entre letas de  2px*/
+  color: #fff;
+  letter-spacing: 2px;
+  text-align: left;
+}
+
+.movie-details {
+  /*Le asignará un altura entre línea de 25px y le quitará la comilla de la lista*/
+  color: #fff;
+  text-align: left;
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+  line-height: 25px;
+}
+
+.movie-details a {
+  /*A las etiquetas a le dará un color dorado y les quitará el subrayado*/
+  color: #e87400;
+  text-decoration: none;
+}
+
+.movie-details span {
+  /*Le dará un mayor grosor al texto span*/
+  font-weight: 500;
+}
+
+.izquierda {
+  /*Alineará los elementos a la izquierda*/
+  text-align: left;
+}
+
+.movie-sinopsis {
+  /*Es la clase que tendrá el texto de la sinopsis. Le asignará un color blanco con un paneo izquierdo de 4% y un espaciado entre línea de 25px*/
+  color: #fff;
+  padding-left: 4%;
+  line-height: 25px;
+}
+
+/*==========================================
+  FIN: Datos de la película
+===========================================*/
+
+/*==========================================
+  INICIO: Video
+===========================================*/
+.plyr-container {
+  /*Se asignara un dimensión de 1000px de ancho al video*/
+  max-width: 1000px;
+  margin: 0 auto;
+  margin-bottom: 2%;
+  box-shadow: 0px 32px 32px rgba(0, 0, 0, 0.5);
+}
+.plyr {
+  /*Le dara un efecto de redondeado y una sombra el cuadro del video*/
+  border-radius: 6px;
+  margin-bottom: 15px;
+  box-shadow: 100px rgba(0, 0, 0, 1);
+}
+
+/*==========================================
+  FIN: Video
+===========================================*/
+
+/*==========================================
+  INICIO: Responsibilidad
+===========================================*/
+@media screen and (max-width: 850px) {
+  /*Cuando el tamaño de la página es menor a 850 px, ocultará el menú principal (horizontal) y mostrará el boton que despliega el botón para abrir el menu lateral*/
+  .grid-nav a {
+    opacity: 0;
+    visibility: hidden;
+  }
+  .movie-sinopsis {
+    font-size: 16px;
+    line-height: 22px;
+  }
+  .movie-details {
+    font-size: 14px;
+    line-height: 18px;
+  }
+  .movie-image img {
+    width: 160px;
+    height: 230px;
+  }
+  #btn {
+    opacity: 1;
+    visibility: visible;
+  }
+  #nav {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  /*Cuando el tamaño de la página es menor a 550 px, se ajustan los detalles de la película a un formato mas pequeño*/
+  .movie-sinopsis {
+    font-size: 14px;
+    line-height: 18px;
+  }
+  .movie-details {
+    font-size: 14px;
+  }
+  .movie-title {
+    font-size: 22px;
+  }
+  .movie-image img {
+    width: 150px;
+    height: 215px;
+  }
+}
+
+@media screen and (max-width: 1350px) {
+  /*Cuando el tamaño de la página es menor a 1350 px, alinea el icono de buscar al 90% de la pantalla*/
+  .search-wrapper {
+    left: 80%;
+  }
+  .usuario-wrapper {
+    left: 90%;
+  }
+}
+/*==========================================
+  FIN: Responsibilidad
+===========================================*/
+
+/*==========================================
+    INICIO: Lista capítulos
+  ===========================================*/
+.center {
+  /*Centrara el texto*/
+  text-align: center;
+}
+
+.pagination {
+  /*Este es el contenedor de la paginación. Tendrá un fondo morado oscuro con un boxshadow para dar profundidad*/
+  display: inline-block;
+  width: 500px;
+  background-color: #241734;
+  -webkit-box-shadow: 0 5px 25px 0 rgba(0, 0, 0, 0.8);
+  box-shadow: 0 5px 25px 0 rgba(0, 0, 0, 0.8);
+  border-radius: 5px;
+  margin: 1% 0%;
+  position: block;
+}
+
+.pagination a {
+  /*Este es la clase que afectara a la etiqueta "a" dandole un color al texto, las transiciones de 300ms y todos los elementos estarán alineados a la izquierda*/
+  color: white;
+  float: left;
+  text-decoration: none;
+  transition: 300ms;
+  width: 120px;
+  height: 50px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.pagination a:not(.listacapitulos) {
+  /*Aplicará un efecto de oscurecimiento a todos los elementos excepto a la página activa al postrar el mouse sobre el*/
+  padding-top: 25px;
+}
+
+.pagination a.listacapitulos {
+  /*Esta es la clase que tendrá la página activa. Aparecera de dorado de color de fondo a comparación del color morado convencional*/
+  background-color: rgba(232, 116, 0, 0.9);
+  float: left;
+  color: white;
+  border-radius: 5px;
+  width: 235px;
+  padding: 12px 12px;
+}
+
+.pagination a:hover:not(.listacapitulos) {
+  /*Aplicará un efecto de oscurecimiento a todos los elementos excepto a la página activa al postrar el mouse sobre el*/
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  cursor: pointer;
+}
+/*==========================================
+    FIN: Paginación
+  ===========================================*/
+
+.capitulo-contenedor {
+  /*Se asignara un dimensión de 1000px de ancho al video*/
+  max-width: 1000px;
+  margin: 0 auto;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: white;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.listacapitulos select {
+  background: rgba(0, 0, 0, 0.1);
+  border: none;
+  font-size: 14px;
+  height: 30px;
+  padding: 5px;
+  width: 105px;
+  color: white;
+  font-weight: 500;
+  border-radius: 6px;
+}
+
+.listacapitulos select option {
+  color: black;
+}
+
+.search {
+  color: white;
+  transform: translateY(40%);
+  position: absolute;
+  overflow-x: hidden;
+}
+
+tbody tr td a {
+  text-decoration: none;
+  font-size: 18px;
+  color: white;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 20px 0;
+  border: 2px solid #fff;
+}
