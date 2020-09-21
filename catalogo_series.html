@@ -1,152 +1,70 @@
 <!DOCTYPE html>
-<html >
-<head>
-  <meta charset="UTF-8">
-  <title>Glitch.TV [Catálogo de películas]</title>
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="css/stylecatalogpage.css">
-  
-</head>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Glitch.TV - Catálogo de películas</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="./assets/css/index.css" />
+    <link rel="stylesheet" href="./assets/css/reusable.css" />
+  </head>
 
-<body> 
-    <!--==========================================
-      INICIO: Navegación
-    ===========================================-->
-    <nav id="nav">  
-        <ul class="nav-list">
-            <li><a href="inicio.html" class="glitch-nav-text" data-glitch="Glitch.TV">Glitch.TV</a></li>
-            <li><a class="element-navigation abajo" href="catalogo_peliculas.html">Películas</a></li>
-            <li><a class="element-navigation abajo activo" href="catalogo_series.html">Series</a></li>
-            <li><a class="element-navigation abajo" href="catalogo_animes.html">Animes</a></li>
-
-        </ul>
-    </nav>
-        
-
-    <header class="content-nav">
-        <div id="searchOverlay" class="overlay" onclick="closeSearch();">
-            <span class="closebtn" onclick="closeSearch();" title="Close Overlay">×</span>
-            <div class="overlay-content">
-                <form action="ver/series/">
-                    <div class="texto-buscar">
-                        ¿Qué estas buscando?
-                    </div>
-                    <input type="text" placeholder="Buscar..." name="search">
-                    <button type="submit">Buscar</button>
-                </form>
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="grid-nav">
-                <a href="inicio.html" class="glitch-nav-text izquierda" data-glitch="Glitch.TV">Glitch.TV</a>
-                <a class="element-navigation abajo" href="catalogo_peliculas.html">Películas</a>
-                <a class="element-navigation abajo activo" href="catalogo_series.html">Series</a>
-                <a class="element-navigation abajo" href="catalogo_animes.html">Animes</a>
-
-                <div class="grid-icons">
-                    <div class="search-wrapper">
-                        <button class="search-icon" onclick="openSearch();"><span></span></button>
-                    </div>
-                    <div  class="usuario-wrapper">
-                        <button class="usuario-icono" onclick="location.href='iniciarsesion.html'"><span></span></button>
-                    </div>
-
-                </div>
-                
-
-                <button id="btn" class="hamburger hamburger--slider" type="button" onclick="toggle();">
-                    <span class="hamburger-box">
-                        <span class="hamburger-inner"></span>
-                    </span>
-                </button>
-                
-            </div>
-        </div>
+  <body>
+    <header class="content_nav">
+      <a
+        href="./index.html"
+        class="glitch_nav_text no_select"
+        data-glitch="Glitch.TV"
+        >Glitch.TV</a
+      >
+      <nav class="flex_row center_flex">
+        <a class="navigation_element" href="./catalogo_peliculas.html"
+          >Películas</a
+        >
+        <a class="navigation_element" href="./catalogo_series.html">Series</a>
+        <a class="navigation_element" href="./catalogo_animes.html">Animes</a>
+      </nav>
     </header>
-    <!--==========================================
-      FIN: Navegación
-    ===========================================-->
 
-
-    <!--==========================================
-    	INICIO: Banner carro
-    ===========================================-->
-    <section class="canva-container">
-        <div class="canva-text" style="margin-left: 26%;">Próximamente</div>
-        <div class="main-container">    
-            <div class="cielo">
-                <div class="sol"></div>    
-            </div> 
-            <div class="suelo">
-            	<!--INICIO: Carro-->
-                <div class="carro-chasis">
-                    <div class="carro-luces">
-                        <div class="luces-traseras"></div>
-                        <div class="luces-traseras"></div>
-                        <div class="luces-traseras"></div>
-                        <div class="luces-traseras"></div>
-                        <div class="luces-traseras"></div>
-                    </div>
-                    <div class="cajuela"></div>
-                    <div class="techo"></div>
-                    <div class="llanta-derecha"></div>
-                    <div class="llanta-izquierda"></div>
-                	<div class="carro-sombra"></div>
-                </div>
-                <!--FIN: Carro-->
-
-                <!--INICIO: Carretera-->
-                <div class="carretera-horizontal"></div>
-                <div class="carretera-horizontal"></div>
-                <div class="carretera-horizontal"></div>
-                <div class="carretera-horizontal"></div>
-                <div class="carretera-horizontal"></div>
-                <div class="carretera-horizontal"></div>
-                <div class="carretera-horizontal"></div>
-                <div class="baldio-izquierdo"></div>
-                <div class="baldio-derecho"></div>
-                <!--FIN: Carretera-->
-            </div>
-        </div>  
-    </section>
-	<!--==========================================
-    FIN: Banner carro
-    ===========================================-->
-
-
-
-    <!--==========================================
-	  INICIO: Separador 
-	===========================================-->
-    <div class="separador">
-        <div class="container">
-            <div class="grid">
-            </div>
+    <section class="canva_container">
+      <div class="full_size center_flex canva_text">Catálago</div>
+      <div class="main_container">
+        <div class="cielo">
+          <div class="sol"></div>
         </div>
-    </div>
-    <!--==========================================
-	  FIN: Separador 
-	===========================================-->
+        <div class="suelo">
+          <div class="carro-chasis">
+            <div class="carro-luces">
+              <div class="luces-traseras"></div>
+              <div class="luces-traseras"></div>
+              <div class="luces-traseras"></div>
+              <div class="luces-traseras"></div>
+              <div class="luces-traseras"></div>
+            </div>
+            <div class="cajuela"></div>
+            <div class="techo"></div>
+            <div class="llanta-derecha"></div>
+            <div class="llanta-izquierda"></div>
+            <div class="carro-sombra"></div>
+          </div>
+          <div class="carretera-horizontal"></div>
+          <div class="carretera-horizontal"></div>
+          <div class="carretera-horizontal"></div>
+          <div class="carretera-horizontal"></div>
+          <div class="carretera-horizontal"></div>
+          <div class="carretera-horizontal"></div>
+          <div class="carretera-horizontal"></div>
+          <div class="baldio-izquierdo"></div>
+          <div class="baldio-derecho"></div>
+        </div>
+      </div>
+    </section>
 
-
-
-	<!--==========================================
-	  INICIO: Lista de películas
-	===========================================-->
-
-        <h1 class="mantenimiento">EN MANTENIMIENTO</h1>	
- 
-    <!--==========================================
-	  INICIO: Lista de películas
-	===========================================-->
-
-
-    <script type="text/javascript" src="js/menusearch.js"></script>
-    <script type="text/javascript" src="js/burguermenu.js"></script>
-    <script type="text/javascript" src="js/responsivocatalogo.js"></script>
-
-
-</body>
+    <div class="separador"></div>
+    <h1
+      class="mantenimiento"
+      style="margin-top: 120px; text-decoration: underline"
+    >
+      EN MANTENIMIENTO
+    </h1>
+  </body>
 </html>
