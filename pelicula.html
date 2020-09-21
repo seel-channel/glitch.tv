@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Glitch.TV Película - Al filo del mañana</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="./assets/css/plyr.css" />
+    <link rel="stylesheet" href="./assets/css/index.css" />
+    <link rel="stylesheet" href="./assets/css/reusable.css" />
+
+    <style>
+      body {
+        background: radial-gradient(
+          ellipse farthest-corner at center top,
+          rgb(170, 0, 78) 0%,
+          rgb(109, 0, 166) 100%
+        );
+      }
+    </style>
+  </head>
+
+  <body onload="loadMovie()">
+    <header class="content_nav center_flex">
+      <div id="navs" class="flex_column center_flex max_width_1400">
+        <a
+          href="./index.html"
+          data-glitch="Glitch.TV"
+          class="glitch_nav_text no_select"
+          >Glitch.TV</a
+        >
+        <nav class="center_flex">
+          <a class="navigation_element" href="./catalogo_peliculas.html"
+            >Películas</a
+          >
+          <a class="navigation_element" href="">Series</a>
+          <a class="navigation_element" href="">Animes</a>
+        </nav>
+      </div>
+    </header>
+
+    <div id="circular_loader"><div></div></div>
+
+    <section
+      id="principal_section"
+      class="flex_column center_flex"
+      style="padding: 60px 0; display: none"
+    >
+      <div class="movie_info_container">
+        <div class="flex_row">
+          <div class="movie_poster">
+            <img id="movie_poster" />
+          </div>
+          <div style="margin: 0 30px; width: 200px">
+            <h1 id="movie_title" class="movie_title mg_bottom"></h1>
+            <ul class="movie_details">
+              <li>Género: <span id="movie_gender"></span></li>
+              <li>Año de estreno: <span id="movie_year"></span></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="movie_sinopsis justify_text">
+          <h1 class="mg_bottom" style="text-align: center">Sinopsis</h1>
+          <span id="movie_sinopsis"> </span>
+        </div>
+      </div>
+
+      <div class="video_container">
+        <video id="player" controls playsinline poster="">
+          <source id="video_source" type="video/mp4" />
+        </video>
+      </div>
+    </section>
+
+    <script type="text/javascript" src="./assets/js/plyr.js"></script>
+    <script type="text/javascript" src="./assets/js/plyrplayer.js"></script>
+    <script type="text/javascript" src="./assets/js/index.js"></script>
+  </body>
+</html>

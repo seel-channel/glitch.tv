@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Glitch.TV - Catálogo de películas</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="./assets/css/index.css" />
+    <link rel="stylesheet" href="./assets/css/reusable.css" />
+  </head>
+
+  <body onload="showMoviesCatalog()">
+    <header class="content_nav center_flex">
+      <div id="navs" class="flex_column center_flex max_width_1400">
+        <a
+          href="./index.html"
+          data-glitch="Glitch.TV"
+          class="glitch_nav_text no_select"
+          >Glitch.TV</a
+        >
+        <nav class="center_flex">
+          <a class="navigation_element" href="./catalogo_peliculas.html"
+            >Películas</a
+          >
+          <a class="navigation_element" href="">Series</a>
+          <a class="navigation_element" href="">Animes</a>
+        </nav>
+      </div>
+    </header>
+
+    <section class="canva_container">
+      <div class="full_size center_flex canva_text">Catálago</div>
+      <div class="main_container">
+        <div class="cielo">
+          <div class="sol"></div>
+        </div>
+        <div class="suelo">
+          <div class="carro-chasis">
+            <div class="carro-luces">
+              <div class="luces-traseras"></div>
+              <div class="luces-traseras"></div>
+              <div class="luces-traseras"></div>
+              <div class="luces-traseras"></div>
+              <div class="luces-traseras"></div>
+            </div>
+            <div class="cajuela"></div>
+            <div class="techo"></div>
+            <div class="llanta-derecha"></div>
+            <div class="llanta-izquierda"></div>
+            <div class="carro-sombra"></div>
+          </div>
+          <div class="carretera-horizontal"></div>
+          <div class="carretera-horizontal"></div>
+          <div class="carretera-horizontal"></div>
+          <div class="carretera-horizontal"></div>
+          <div class="carretera-horizontal"></div>
+          <div class="carretera-horizontal"></div>
+          <div class="carretera-horizontal"></div>
+          <div class="baldio-izquierdo"></div>
+          <div class="baldio-derecho"></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="separador"></div>
+
+    <div id="circular_loader"><div></div></div>
+
+    <div
+      id="principal_section"
+      class="full_size center_flex"
+      style="display: none"
+    >
+      <div id="cards_grid" class="center_flex full_width"></div>
+    </div>
+
+    <div class="pagination">
+      <a href="catalogo_peliculas.html"><b>&laquo;</b></a>
+      <a id="page1" href="catalogo_peliculas.html" class="active">1</a>
+      <a id="page2" href="catalogo_peliculas.html?page=2">2</a>
+      <a href="catalogo_peliculas.html?page=2"><b>&raquo;</b></a>
+    </div>
+
+    <script type="text/javascript" src="js/menusearch.js"></script>
+    <script type="text/javascript" src="./assets/js/burguermenu.js"></script>
+    <script type="text/javascript" src="./assets/js/index.js"></script>
+  </body>
+</html>

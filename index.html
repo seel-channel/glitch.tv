@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Glitch.TV - Películas, series y animes.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/css/index.css" />
+    <link rel="stylesheet" href="./assets/css/reusable.css" />
+    <link rel="stylesheet" href="./assets/css/icons.css" />
+  </head>
+
+  <body onload="createHomePageCards();">
+    <header class="content_nav">
+      <a
+        href="./index.html"
+        class="glitch_nav_text no_select"
+        data-glitch="Glitch.TV"
+        >Glitch.TV</a
+      >
+      <nav class="flex_row center_flex">
+        <a class="navigation_element" href="./catalogo_peliculas.html"
+          >Películas</a
+        >
+        <a class="navigation_element" href="">Series</a>
+        <a class="navigation_element" href="">Animes</a>
+      </nav>
+    </header>
+
+    <section class="popular_movies">
+      <div class="popular_movies_text no_select">
+        <div class="neon">PELÍCULAS</div>
+        <div class="flux">POPULARES</div>
+      </div>
+
+      <div id="circular_loader"><div></div></div>
+      <div
+        id="principal_section"
+        class="full_size center_flex"
+        style="display: none"
+      >
+        <div id="big_cards_grid" class="flex_row center_flex"></div>
+      </div>
+    </section>
+
+    <div class="separador">
+      <div class="glitch_text" data-text="Destacados">Destacados</div>
+    </div>
+    <div id="circular_loader2"><div></div></div>
+    <div
+      id="principal_section2"
+      class="full_size center_flex"
+      style="display: none"
+    >
+      <div id="cards_grid" class="center_flex full_width"></div>
+    </div>
+
+    <div style="margin-bottom: 80px">
+      <a href="catalogo_peliculas.html" class="cool_btn">VER TODO</a>
+    </div>
+
+    <script src="./assets/js/index.js"></script>
+  </body>
+</html>
