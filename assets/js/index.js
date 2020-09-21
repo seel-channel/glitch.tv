@@ -117,34 +117,37 @@ function loadMovie() {
   var cleanName = name
     .replaceAll("?", "")
     .replaceAll("-", " ")
-    .replaceAll("%20", " ");
+    .replaceAll("%20", " ")
+    .replaceAll("%C3%B1", "ñ")
+    .replaceAll("%C3%A1", "á")
+    .replaceAll("%C3%A9", "é")
+    .replaceAll("%C3%AD", "í")
+    .replaceAll("%C3%B3", "ó");
 
   for (const id in movies) {
     if (cleanName == movies[id].title.toLowerCase()) {
-      insertHTML(
-        "movie_title",
-        movies[id].title + " (" + movies[id].year + ")"
-      );
+      insertHTML("movie_title", `${movies[id].title} (${movies[id].year})`);
       insertHTML("movie_gender", movies[id].subtitle);
       insertHTML("movie_year", movies[id].year);
       insertHTML("movie_sinopsis", movies[id].sinopsis);
       getElement("movie_poster").setAttribute(
         "src",
-        movies[id].path + "/poster.jpg"
+        `${movies[id].path}/poster.jpg`
       );
       getElement("player").setAttribute(
         "poster",
-        movies[id].path + "/banner.jpg"
+        `${movies[id].path}/banner.jpg`
       );
       getElement("video_source").setAttribute("src", "");
       getElement("circular_loader").style.display = "none";
       getElement("principal_section").style.display = "";
+      document.title = `Glitch.TV - ${movies[id].title}`;
       encontrado = true;
       break;
     }
   }
   if (!encontrado) {
-    window.location.href = "./index.html";
+    window.location.href = "./catalogo_peliculas.html";
   }
 }
 
@@ -263,7 +266,7 @@ function moviesDataBase() {
     {
       title: "Scott Pilgrim",
       subtitle: "Acción, Fantasía",
-      path: "./assets/movies/passenger",
+      path: "./assets/movies/scottpilgrim",
       year: "2010",
       sinopsis: `Después de conocer a la mujer de sus sueños, 
       Scott Pilgrim debe enfrentarse a un ejército de exparejas 
@@ -289,7 +292,7 @@ function moviesDataBase() {
     {
       title: "Rogue One",
       subtitle: "Acción, Ciencia ficción",
-      path: "./assets/movies/passenger",
+      path: "./assets/movies/rogueone",
       year: "2016",
       sinopsis: `El Imperio va a construir una estación espacial capaz de destruir planetas,
        conocida como la Estrella de la Muerte. Los rebeldes, conocedores de esto, se embarcan 
@@ -408,6 +411,40 @@ function moviesDataBase() {
       sinopsis: `El gobierno contrata a la prestigiosa lingüista Louise Banks para que se comunique con unos 
       alienígenas que han llegado a la Tierra. Conforme ella aprende su idioma, va experimentando 
       regresiones muy intensas que desvelan la verdadera misión que les ha llevado hasta nuestro planeta.`,
+    },
+    {
+      title: "Deadpool",
+      subtitle: "Acción, Comedia",
+      path: "./assets/movies/deadpool",
+      year: "2016",
+      sinopsis: `Un exmercenario quien, tras haber sido sometido a un cruel experimento, 
+      adquiere el superpoder de sanar rápidamente y pretende vengarse del hombre que destrozó su vida..`,
+    },
+    {
+      title: "Deadpool 2",
+      subtitle: "Acción, Comedia",
+      path: "./assets/movies/deadpool2",
+      year: "2018",
+      sinopsis: `Deadpool debe proteger a Russell, un adolescente mutante, de Cable, 
+      un soldado del futuro genéticamente modificado. Deadpool se alía con otros superhéroes para 
+      poder derrotar al poderoso Cable.`,
+    },
+    {
+      title: "John Wick 3",
+      subtitle: "Acción, Suspenso",
+      path: "./assets/movies/johnwick3",
+      year: "2019",
+      sinopsis: `John Wick regresa de nuevo pero con una recompensa sobre su cabeza que persigue 
+      unos mercenarios. Tras asesinar a uno de los miembros de su gremio, Wick es expulsado y se 
+      convierte en el foco de atención de todos los sicarios de la organización.`,
+    },
+    {
+      title: "La gran muralla",
+      subtitle: "Acción, Fantasía",
+      path: "./assets/movies/lagranmuralla",
+      year: "2016",
+      sinopsis: `Encarcelado dentro de la Gran Muralla china, un guerrero mercenario une fuerzas con
+      un ejército de élite para luchar contra un ataque de monstruos saqueadores.`,
     },
   ];
 }
