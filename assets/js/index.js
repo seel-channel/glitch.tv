@@ -124,8 +124,9 @@ function loadVideoContent(database, hrefNotFound) {
 }
 
 function setVideoSrc(src) {
-  if (src.length == 1 || typeof src === "string" || src instanceof String) {
+  if (src.length == 1) {
     getElement("video_source").setAttribute("src", src[0]);
+    getElement("player").load();
   } else {
     let episodeList = ``;
     for (const id in src) {
@@ -149,6 +150,7 @@ function setEpisodeNumber(episodeNumber) {
   getElement("select_episodes").options.item(episodeNumber - 1).selected =
     "selected";
   getElement("episode_title").innerHTML = "Capítulo " + episodeNumber;
+  getElement("player").load();
 }
 
 function nextEpisode() {
@@ -256,6 +258,9 @@ function moviesDataBase() {
       lo transforman en el Hombre Araña. Ahora deberá usar sus 
       nuevas habilidades ante el malvado Kingpin, un enorme demente 
       que puede abrir portales hacia otros universos.`,
+      videoSrc: [
+        "https://www595.o0-2.com/token=wuvf3YV5dfgMUUnxaWsozw/1600741853/2806:102e::/36/d/46/9e57bcf4bb0956b8651715a2e04c646d-720p.mp4",
+      ],
     },
     {
       title: "Gravedad",
