@@ -19,7 +19,7 @@
     </style>
   </head>
 
-  <body onload=" loadAnime(); cambiarVideoTenseiShitaraSlime(1);">
+  <body onload="loadAnime(); setEpisodeNumber(1);">
     <header class="content_nav">
       <a
         href="./index.html"
@@ -64,45 +64,19 @@
       </div>
 
       <div class="pagination no_select">
-        <a onclick="anteriorCapituloTenseiShitaraSlime();"><b>&laquo;</b></a>
+        <a onclick="prevEpisode();"><b>&laquo;</b></a>
         <a class="listacapitulos active">
           Lista de capítulos
           <select
-            id="selectcapitulo"
+            id="select_episodes"
             style="margin-top: 10px"
-            onchange="cambiarVideoTenseiShitaraSlime(this.value);"
-          >
-            <option value="1">Capítulo 1</option>
-            <option value="2">Capítulo 2</option>
-            <option value="3">Capítulo 3</option>
-            <option value="4">Capítulo 4</option>
-            <option value="5">Capítulo 5</option>
-            <option value="6">Capítulo 6</option>
-            <option value="7">Capítulo 7</option>
-            <option value="8">Capítulo 8</option>
-            <option value="9">Capítulo 9</option>
-            <option value="10">Capítulo 10</option>
-            <option value="11">Capítulo 11</option>
-            <option value="12">Capítulo 12</option>
-            <option value="13">Capítulo 13</option>
-            <option value="14">Capítulo 14</option>
-            <option value="15">Capítulo 15</option>
-            <option value="16">Capítulo 16</option>
-            <option value="17">Capítulo 17</option>
-            <option value="18">Capítulo 18</option>
-            <option value="19">Capítulo 19</option>
-            <option value="20">Capítulo 20</option>
-            <option value="21">Capítulo 21</option>
-            <option value="22">Capítulo 22</option>
-            <option value="23">Capítulo 23</option>
-            <option value="24">Capítulo 24</option>
-            <option value="25">Capítulo 25</option>
-          </select>
+            onchange="setEpisodeNumber(getEpisodeNumber())"
+          ></select>
         </a>
-        <a onclick="siguienteCapituloTenseiShitaraSlime();"><b>&raquo;</b></a>
+        <a onclick="nextEpisode();"><b>&raquo;</b></a>
       </div>
 
-      <h1 id="capitulo-titulo" style="text-transform: uppercase">Capítulo 1</h1>
+      <h1 id="episode_title" style="text-transform: uppercase"></h1>
 
       <div class="video_container">
         <video id="player" controls playsinline poster="">
@@ -114,6 +88,5 @@
     <script src="./assets/js/plyr.js"></script>
     <script src="./assets/js/index.js"></script>
     <script src="./assets/js/plyrplayer.js"></script>
-    <script src="./assets/js/selectordecapitulo.js"></script>
   </body>
 </html>

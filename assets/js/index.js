@@ -2,8 +2,8 @@ function getElement(id) {
   return document.getElementById(id);
 }
 
-function insertHTML(id, html) {
-  getElement(id).innerHTML += html;
+function setHTML(id, html) {
+  getElement(id).innerHTML = html;
 }
 
 function addClass(id, className) {
@@ -16,6 +16,11 @@ function rmClass(id, className) {
 
 function ifNull(ifNull, ifNotNull) {
   return ifNull == null ? ifNotNull : ifNull;
+}
+
+function clearLoader() {
+  getElement("principal_section").style.display = "";
+  getElement("circular_loader").style.display = "none";
 }
 
 function createCard(cardsData, gridID, openPage) {
@@ -64,7 +69,7 @@ function createCard(cardsData, gridID, openPage) {
         </div>`;
   }
 
-  insertHTML(gridID, htmlTemplate);
+  setHTML(gridID, htmlTemplate);
 }
 
 function createCatalog(initIndex, show, IDInsert, database, toOpen) {
@@ -77,14 +82,6 @@ function createCatalog(initIndex, show, IDInsert, database, toOpen) {
     cards.push(dataList[i]);
   }
   createCard(cards, ifNull(IDInsert, "cards_grid"), openPage);
-}
-
-function loadMovie() {
-  loadVideoContent(moviesDataBase(), "./catalogo_peliculas.html");
-}
-
-function loadAnime() {
-  loadVideoContent(animesDataBase(), "./catalogo_animes.html");
 }
 
 function loadVideoContent(database, hrefNotFound) {
@@ -102,10 +99,10 @@ function loadVideoContent(database, hrefNotFound) {
 
   for (const id in database) {
     if (cleanName == database[id].title.toLowerCase()) {
-      insertHTML("movie_title", `${database[id].title} (${database[id].year})`);
-      insertHTML("movie_gender", database[id].subtitle);
-      insertHTML("movie_year", database[id].year);
-      insertHTML("movie_sinopsis", database[id].sinopsis);
+      setHTML("movie_title", `${database[id].title} (${database[id].year})`);
+      setHTML("movie_gender", database[id].subtitle);
+      setHTML("movie_year", database[id].year);
+      setHTML("movie_sinopsis", database[id].sinopsis);
       getElement("movie_poster").setAttribute(
         "src",
         `${database[id].path}/poster.jpg`
@@ -114,10 +111,9 @@ function loadVideoContent(database, hrefNotFound) {
         "poster",
         `${database[id].path}/banner.jpg`
       );
-      getElement("video_source").setAttribute("src", "");
-      getElement("principal_section").style.display = "";
-      getElement("circular_loader").style.display = "none";
+      clearLoader();
       document.title = `Glitch.TV - ${database[id].title}`;
+      setVideoSrc(database[id].videoSrc);
       found = true;
       break;
     }
@@ -127,12 +123,67 @@ function loadVideoContent(database, hrefNotFound) {
   }
 }
 
-function createHomePageCards() {
+function setVideoSrc(src) {
+  if (src.length == 1 || typeof src === "string" || src instanceof String) {
+    getElement("video_source").setAttribute("src", src[0]);
+  } else {
+    let episodeList = ``;
+    for (const id in src) {
+      let newID = parseInt(id) + 1;
+      episodeList += `<option id="${newID}" value="${src[id]}">Capítulo ${newID}</option>`;
+    }
+    setHTML("select_episodes", episodeList);
+  }
+}
+
+function getEpisodeNumber() {
+  var e = getElement("select_episodes");
+  return parseInt(e.options[e.selectedIndex].getAttribute("id"));
+}
+
+function setEpisodeNumber(episodeNumber) {
+  getElement("video_source").setAttribute(
+    "src",
+    getElement("select_episodes").options[episodeNumber - 1].value
+  );
+  getElement("select_episodes").options.item(episodeNumber - 1).selected =
+    "selected";
+  getElement("episode_title").innerHTML = "Capítulo " + episodeNumber;
+}
+
+function nextEpisode() {
+  var number = getEpisodeNumber();
+  if (number == getElement("select_episodes").length) {
+    setEpisodeNumber(1);
+  } else {
+    setEpisodeNumber(number + 1);
+  }
+}
+
+function prevEpisode() {
+  var number = getEpisodeNumber();
+  if (number == 1) {
+    setEpisodeNumber(getElement("select_episodes").length);
+  } else {
+    setEpisodeNumber(number - 1);
+  }
+}
+
+// LOAD VIDEO PAGES
+function loadMovie() {
+  loadVideoContent(moviesDataBase(), "./catalogo_peliculas.html");
+}
+
+function loadAnime() {
+  loadVideoContent(animesDataBase(), "./catalogo_animes.html");
+}
+
+// SHOW CATALOGS
+function showHomepageCatalog() {
   createCatalog(2, 4, "big_cards_grid");
   createCatalog(10, 10);
-  getElement("circular_loader").style.display = "none";
+  clearLoader();
   getElement("circular_loader2").style.display = "none";
-  getElement("principal_section").style.display = "";
   getElement("principal_section2").style.display = "";
 }
 
@@ -158,16 +209,15 @@ function showMoviesCatalog() {
       addClass("page1", "active");
       break;
   }
-  getElement("circular_loader").style.display = "none";
-  getElement("principal_section").style.display = "";
+  clearLoader();
 }
 
 function showAnimesCatalog() {
   createCatalog(0, 15, "cards_grid", animesDataBase(), "anime.html");
-  getElement("circular_loader").style.display = "none";
-  getElement("principal_section").style.display = "";
+  clearLoader();
 }
 
+//DATABASES
 function animesDataBase() {
   return [
     {
@@ -179,6 +229,7 @@ function animesDataBase() {
       agujero gigante cuyo fondo se dirige a las profundidades de la tierra. Dicho agujero 
       es conocido como el Abismo. Dentro del Abismo se encuentran misteriosos artefactos 
       abandonados y restos de una civilización avanzada que desapareció hace milenios`,
+      videoSrc: ["s1", "s2", "s3"],
     },
     {
       title: "Tensei shitara slime datta ken",
@@ -188,6 +239,7 @@ function animesDataBase() {
       sinopsis: `Un asalariado de 37 años que murió tras de ser apuñalado durante un robo. 
       Despierta en otro mundo reencarnado como un slime, considerado uno de los monstruos más débiles.
       A pesar de esto, tiene diferentes habilidades especiales y únicas.`,
+      videoSrc: ["s", "s", "s"],
     },
   ];
 }
