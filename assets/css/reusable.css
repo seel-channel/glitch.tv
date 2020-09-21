@@ -41,6 +41,12 @@ body::-webkit-scrollbar-thumb {
   border-radius: 6px;
 }
 
+@media screen and (max-width: 800px) {
+  body {
+    background: linear-gradient(#ff00dc 0%, var(--darkPurple) 25%);
+  }
+}
+
 a {
   color: white;
   text-decoration: none;
@@ -92,14 +98,6 @@ a:hover {
 
 .justify_text {
   text-align: justify;
-}
-
-.card,
-.card_section,
-.box_shadow {
-  border-radius: 3px;
-  background-color: white;
-  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
 }
 
 .no_select {
@@ -171,7 +169,7 @@ a:hover {
   letter-spacing: 5px;
   text-decoration: none;
   text-transform: uppercase;
-  font-family: "Rhino Sans";
+  font-family: "Rhino Sans", sans-seri;
   text-shadow: 1px 1px 1px #e87400, 2px 2px 2px #e87400, 3px 3px 3px #e87400,
     5px 5px 5px #ff0090, 7px 7px 7px #660066;
 }
@@ -240,8 +238,8 @@ a:hover {
 .popular_movies_text {
   display: flex;
   flex-wrap: wrap;
-  flex-direction: row;
   max-width: 1400px;
+  flex-direction: row;
   align-items: flex-start;
 }
 
@@ -320,7 +318,6 @@ a:hover {
 }
 
 .glitch_img_cover {
-  margin: 0 auto;
   position: relative;
   border-radius: 6px;
   border: 3px solid black;
@@ -543,7 +540,7 @@ a:hover {
   background-image: linear-gradient(90deg, #0066ff 0%, #9933ff 100%);
 }
 
-#circular_loader {
+.circular_loader {
   width: 100%;
   height: 80vh;
   display: flex;
@@ -551,7 +548,7 @@ a:hover {
   justify-content: center;
 }
 
-#circular_loader > div {
+.circular_loader > div {
   width: 40px;
   height: 40px;
   border: 8px solid var(--darkPurple);

@@ -46,10 +46,14 @@
   justify-content: flex-start;
 }
 
+.neon,
+.flux {
+  font-family: "Neon Font", sans-serif;
+}
+
 .neon {
   font-size: 60px;
   color: #fb4264;
-  font-family: "Neon Font";
   text-shadow: 0 0 20px #f40a35;
   animation: neon 2s ease infinite;
 }
@@ -58,7 +62,6 @@
   font-size: 50px;
   color: #426dfb;
   margin: 0 0 0 20px;
-  font-family: "Neon Font";
   text-decoration: underline;
   text-shadow: 0 0 20px #2356ff;
   animation: flux 2s linear infinite;
@@ -106,7 +109,7 @@
 }
 
 .glitch_text {
-  font-family: "Archivo Black";
+  font-family: "Archivo Black", sans-serif;
   font-size: 50px;
   text-transform: uppercase;
   position: relative;
@@ -242,7 +245,7 @@
   position: absolute;
   letter-spacing: 30px;
   text-transform: uppercase;
-  font-family: "Neon Title";
+  font-family: "Neon Title", sans-serif;
   text-shadow: 0 0 1vw #fa1c16, 0 0 3vw #fa1c16, 0 0 10vw #fa1c16,
     0 0 10vw #fa1c16, 0 0 0.4vw #fed128, 0.5vw 0.5vw 0.1vw #806914;
 }
