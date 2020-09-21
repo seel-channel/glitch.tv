@@ -123,6 +123,7 @@ function loadVideoContent(database, hrefNotFound) {
   }
 }
 
+// VIDEO OPTIONS
 function setVideoSrc(src) {
   if (src.length == 1) {
     getElement("video_source").setAttribute("src", src[0]);
@@ -274,6 +275,9 @@ function moviesDataBase() {
       y la nave queda destruida, dejando a Ryan y Matt atrapados 
       en el espacio, sin ninguna conexión con la Tierra y sin 
       esperanza de ser rescatados.`,
+      videoSrc: [
+        "https://00f74ba44bb63ecf1d73c6d4623ecce2308a4ae2a2-apidata.googleusercontent.com/download/storage/v1/b/kyaru/o/po3RMkPNa8z-umi.mp4?jk=AFshE3X5yuCcS3-mvWDVpiOeWfsxjYrv4k3lT96Yw8-Lpc8aek7GAgF_Te03bMTkHINL17YzVTOujGJlyisHlvsb6kKjxBvth_lKevznh9itDvSbzd0UFanBvCi8DI_kgLSKOKCoFbcvTIPRBKmIPPmOzwsF77Ue1YodUBKzWpZXcgEZjNz_DaseO_hmFtvfhs23OQd8aqka_NVtf7JezwTtOuOOpbq9rIMKwS8BiPFbaizu31vgmuksuuS0gkBRUK0OOoBZtzVllzuOECfxGZP8sJcqXJzxr1uDBDIUr2_qy4xTfd9NCjB7_GUA-_73MGMuXLP1g79_x8yzn2bZwJOACHeMd20YE6F1EM8vutWuSJ0S8AVJmEM795AEGEVEN0YbmNPiWCFnPaN-_GI2A4WBjkCuwNJErreUs8BnzZyr-59w6fWhbI8XOQ3fS8fbae7tdxixJNhJvnaSUfboHpK2fRkTXd-kuuCe-UXxndtznJCEqb_xy8cJLfPgNLe3ZykFpDlEQy-M-sRJD-hyrdCifGIGi4I_Z-tw-E-eQjQWgvJlzIx8HNAs72ALGN_11tm-XWidhcZfjuiONXAxipzzBPI9K7bHPKn5I3OKLjTzh0FS6wjk5cGV41Y4r5rkjZtKjCgNfksLFwa7NYUeNfm-Z_ejg_HRRQEckWVehe19LRSUFWGQVhs-foE0GblgpCTBJOqx5sFFUXmks00Vkme0yzQiiyPH7Agj8y_ezciLKMWraSwZXtNNTkfIctEYKggzH0zJu2S0w-gcMujuo9VTJcDwIF3S0I_PK5qGGEeZCgFGkc9TAr70U4Z2EKxj3XtlshKebtZfZNXIBvv04IF6zb5CHpJis3LmwEeNsiLrPrip6ACKvS6y0YORnDSnI3qzo-bGCVEK&isca=1",
+      ],
     },
     {
       title: "La torre oscura",
@@ -287,6 +291,9 @@ function moviesDataBase() {
       Su batalla, que transita por tiempos y espacios 
       diferentes en los que la realidad y la irrealidad se mezclan,
       representa la lucha definitiva del bien contra el mal.`,
+      videoSrc: [
+        "https://www1114.o0-3.com/token=knQMvaslQnu-10IhH_JNmg/1600744319/2806:102e::/108/6/7d/f41ead5a618b091c9d8f9be0d7e7b7d6-720p.mp4",
+      ],
     },
     {
       title: "Bright",
@@ -296,6 +303,9 @@ function moviesDataBase() {
       sinopsis: `Dos policías deben dejar de lado sus 
       diferencias para proteger a una joven elfa hembra 
       y a una reliquia del pensamiento.`,
+      videoSrc: [
+        "https://www633.o0-2.com/token=x1FxlPWNJVNDqPJLQqqqtA/1600744482/2806:102e::/109/1/e9/c73c3d908e50848f791131b6cf6f8e91-720p.mp4",
+      ],
     },
     {
       title: "Doctor Strange",
@@ -307,6 +317,9 @@ function moviesDataBase() {
       mediante técnicas alternativas. Sus intentos le 
       llevan a descubrir que ha sido designado para encabezar
       la lucha contra una fuerza oscura y sobrenatural.`,
+      videoSrc: [
+        "https://www176.o0-1.com/token=CApjZLEVGFRIkGHuuIuctw/1600744619/2806:102e::/25/a/39/cf367bab41098b154398ebb0d832539a-720p.mp4",
+      ],
     },
     {
       title: "LIFE",
@@ -317,6 +330,9 @@ function moviesDataBase() {
       de vida inteligente en Marte. Cuando comienzan a investigar, 
       se dan cuenta de que esa forma de vida está mucho más evolucionada 
       y es infinitamente más aterradora de lo que habían supuesto.`,
+      videoSrc: [
+        "https://www1822.o0-4.com/token=z8BztSf3YeiaN8PA56jEVA/1600744739/2806:102e::/7/e/0c/dd14c318ac47c68f3f4d4c0c3157b0ce-720p.mp4",
+      ],
     },
     {
       title: "Orgullo + Prejucios + Zombies",
@@ -327,6 +343,9 @@ function moviesDataBase() {
       plaga de zombies invade la apacible población inglesa de Meryton. 
       Bennet y sus hermanas, que han sido entrenadas por su padre en
       las artes marciales, se disponen a combatir contra los muertos vivientes.`,
+      videoSrc: [
+        "https://www579.o0-2.com/token=wFQ_4uwyU-vHIFyfZCdQGA/1600744805/2806:102e::/109/b/52/0de7e1e3605ab9c207a12a34426f652b-720p.mp4",
+      ],
     },
     {
       title: "Watchmen",
@@ -336,6 +355,9 @@ function moviesDataBase() {
       sinopsis: `Después de que su excolega es asesinado,
       un vigilante enmascarado descubre un plan para desacreditar 
       y destruir a los superhéroes del mundo.`,
+      videoSrc: [
+        "https://www2078.o0-5.com/token=nwZOaxxi-2c60wAi2d1png/1600744897/2806:102e::/18/0/f7/fd9ba494e23e4b7fb01ba2a081608f70-720p.mp4",
+      ],
     },
     {
       title: "Ready Player One",
@@ -348,6 +370,9 @@ function moviesDataBase() {
       Wade participa en la búsqueda del tesoro que el creador de este mundo 
       imaginario dejó oculto en su obra. No obstante, hay gente muy 
       peligrosa compitiendo contra él.`,
+      videoSrc: [
+        "https://www892.o0-2.com/token=Qr_MgHgkMciYUgpGJey0Pw/1600744963/2806:102e::/17/6/18/b58b78ad6381936608f1bdba239ca186-720p.mp4",
+      ],
     },
     {
       title: "Passenger",
@@ -360,6 +385,9 @@ function moviesDataBase() {
       sin embargo, descubren que hay una avería en la nave y tendrán que
       repararla a tiempo para salvar a las 5 000 personas que permanecen
       hibernando, y a sí mismos.`,
+      videoSrc: [
+        "https://www376.o0-1.com/token=8ZG42tkofVp3RvSqT5uUsQ/1600745030/2806:102e::/108/3/13/9658e9c625c6973e7ee0586bcf164133-720p.mp4",
+      ],
     },
     {
       title: "Scott Pilgrim",
@@ -369,6 +397,9 @@ function moviesDataBase() {
       sinopsis: `Después de conocer a la mujer de sus sueños, 
       Scott Pilgrim debe enfrentarse a un ejército de exparejas 
       que quieren deshacerse de él.`,
+      videoSrc: [
+        "https://www1080.o0-3.com/token=sDrveKtyMQFZHizoEV-r7w/1600745081/2806:102e::/19/c/99/76611287755f1e4fb5c223121ad5099c-720p.mp4",
+      ],
     },
     {
       title: "Mad Max",
@@ -378,6 +409,9 @@ function moviesDataBase() {
       sinopsis: `Aunque está decidido a vagar solo por el páramo post-apocalíptico, 
       Mad Max se une a Furiosa, una comandante fugitiva, y su banda, quienes están 
       tratando de escapar de un señor de la guerra.`,
+      videoSrc: [
+        "https://www2183.o0-5.com/token=NiHGANnSi8fMeGImekPHuw/1600745132/2806:102e::/19/1/17/9b00a31d95173c04fbf486d0b0366171-720p.mp4",
+      ],
     },
     {
       title: "Elysium",
@@ -386,6 +420,9 @@ function moviesDataBase() {
       year: "2013",
       sinopsis: `En el año 2154, los ricos viven en una cómoda y lujosa estación 
       espacial mientras que los pobres tienen que vivir en las ruinas de la Tierra superpoblada.`,
+      videoSrc: [
+        "https://www102.o0-1.com/token=JlTKYSuQs-86oP5skx1xGQ/1600745197/2806:102e::/19/e/b7/d81713e239b00633491cd625ffae7b7e-720p.mp4",
+      ],
     },
     {
       title: "Rogue One",
@@ -395,6 +432,9 @@ function moviesDataBase() {
       sinopsis: `El Imperio va a construir una estación espacial capaz de destruir planetas,
        conocida como la Estrella de la Muerte. Los rebeldes, conocedores de esto, se embarcan 
        en una misión extraordinaria: robar los planos y sabotear la estación.`,
+      videoSrc: [
+        "https://www1113.o0-3.com/token=JXiXChAB3BeKv81oAmbDQw/1600745261/2806:102e::/22/d/ad/c646fd5862d779c5a0dc33197150cadd-720p.mp4",
+      ],
     },
     {
       title: "Hunt for the Wilderpeople",
@@ -404,6 +444,9 @@ function moviesDataBase() {
       sinopsis: `Ricky es un chico rebelde de ciudad de doce años al que no encuentran hogar de acogida, 
       salvo una granja en medio de la nada con una pareja; ella es encantadora, 
       pero él es arisco y solitario.`,
+      videoSrc: [
+        "https://www66.o0-1.com/token=To7zh2bjlpQ5JmdLWdNzpg/1600745291/2806:102e::/7/8/dd/90d17b42b757e72351e890645f680dd8-720p.mp4",
+      ],
     },
     {
       title: "Overlord",
