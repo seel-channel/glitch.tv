@@ -64,50 +64,15 @@ function createCard(cardsData, gridID) {
   insertHTML(gridID, htmlTemplate);
 }
 
-function createMovieCatalog(initIndex, show, IDInsert) {
-  var movieList = moviesDataBase();
-  var movies = [];
+function createCatalog(initIndex, show, IDInsert, database) {
+  var dataList = database == null ? moviesDataBase() : database;
+  var cards = [];
   var maxIndex =
-    movieList.length < initIndex + show ? movieList.length : initIndex + show;
+    dataList.length < initIndex + show ? dataList.length : initIndex + show;
   for (var i = initIndex; i < maxIndex; i++) {
-    movies.push(movieList[i]);
+    cards.push(dataList[i]);
   }
-  createCard(movies, IDInsert == null ? "cards_grid" : IDInsert);
-}
-
-function createHomePageCards() {
-  createMovieCatalog(2, 4, "big_cards_grid");
-  createMovieCatalog(10, 10);
-  getElement("circular_loader").style.display = "none";
-  getElement("circular_loader2").style.display = "none";
-  getElement("principal_section").style.display = "";
-  getElement("principal_section2").style.display = "";
-}
-
-function showMoviesCatalog() {
-  var url = window.location.search;
-  var id = url.replaceAll("?page=", "");
-
-  for (let i = 1; i < 3; i++) {
-    rmClass("page" + i, "active");
-  }
-
-  switch (parseInt(id)) {
-    case 1:
-      createMovieCatalog(0, 15);
-      addClass("page1", "active");
-      break;
-    case 2:
-      createMovieCatalog(15, 15);
-      addClass("page2", "active");
-      break;
-    default:
-      createMovieCatalog(0, 15);
-      addClass("page1", "active");
-      break;
-  }
-  getElement("circular_loader").style.display = "none";
-  getElement("principal_section").style.display = "";
+  createCard(cards, IDInsert == null ? "cards_grid" : IDInsert);
 }
 
 function loadMovie() {
@@ -149,6 +114,71 @@ function loadMovie() {
   if (!encontrado) {
     window.location.href = "./catalogo_peliculas.html";
   }
+}
+
+function createHomePageCards() {
+  createCatalog(2, 4, "big_cards_grid");
+  createCatalog(10, 10);
+  getElement("circular_loader").style.display = "none";
+  getElement("circular_loader2").style.display = "none";
+  getElement("principal_section").style.display = "";
+  getElement("principal_section2").style.display = "";
+}
+
+function showMoviesCatalog() {
+  var url = window.location.search;
+  var id = url.replaceAll("?page=", "");
+
+  for (let i = 1; i < 3; i++) {
+    rmClass("page" + i, "active");
+  }
+
+  switch (parseInt(id)) {
+    case 1:
+      createCatalog(0, 15);
+      addClass("page1", "active");
+      break;
+    case 2:
+      createCatalog(15, 15);
+      addClass("page2", "active");
+      break;
+    default:
+      createCatalog(0, 15);
+      addClass("page1", "active");
+      break;
+  }
+  getElement("circular_loader").style.display = "none";
+  getElement("principal_section").style.display = "";
+}
+
+function showAnimesCatalog() {
+  createCatalog(0, 15, "cards_grid", animesDataBase());
+  getElement("circular_loader").style.display = "none";
+  getElement("principal_section").style.display = "";
+}
+
+function animesDataBase() {
+  return [
+    {
+      title: "Made in Abyss",
+      subtitle: "Fantasía, Aventura",
+      path: "./assets/animes/made_in_abyss",
+      year: "2017",
+      sinopsis: `Riko es una joven huérfana que vive en la ciudad que rodea a un extraño 
+      agujero gigante cuyo fondo se dirige a las profundidades de la tierra. Dicho agujero 
+      es conocido como el Abismo. Dentro del Abismo se encuentran misteriosos artefactos 
+      abandonados y restos de una civilización avanzada que desapareció hace milenios`,
+    },
+    {
+      title: "Tensei shitara slime datta ken",
+      subtitle: "Fantasía acción",
+      path: "./assets/animes/tensei_shitara_slime_datta_ken",
+      year: "2018",
+      sinopsis: `Un asalariado de 37 años que murió tras de ser apuñalado durante un robo. 
+      Despierta en otro mundo reencarnado como un slime, considerado uno de los monstruos más débiles.
+      A pesar de esto, tiene diferentes habilidades especiales y únicas.`,
+    },
+  ];
 }
 
 function moviesDataBase() {
