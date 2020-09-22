@@ -862,8 +862,8 @@ a:hover {
 
 /* SEPARATOR */
 .separador {
-  padding: 30px 60px;
   text-align: left;
+  padding: 30px 60px;
   position: relative;
   background-color: var(--darkPurple);
   box-shadow: 0 5px 25px 0 rgba(0, 0, 0, 0.8);
