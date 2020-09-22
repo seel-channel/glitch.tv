@@ -64,8 +64,10 @@
       </div>
 
       <div class="pagination no_select">
-        <a onclick="prevEpisode();"><b>&laquo;</b></a>
-        <a class="listacapitulos active">
+        <a class="big_prev center_flex" onclick="prevEpisode();"
+          ><b>&laquo;</b></a
+        >
+        <a class="listacapitulos center_flex active">
           Lista de capítulos
           <select
             id="select_episodes"
@@ -73,7 +75,9 @@
             onchange="setEpisodeNumber(getEpisodeNumber())"
           ></select>
         </a>
-        <a onclick="nextEpisode();"><b>&raquo;</b></a>
+        <a class="big_next center_flex" onclick="nextEpisode();"
+          ><b>&raquo;</b></a
+        >
       </div>
 
       <h1 id="episode_title" style="text-transform: uppercase"></h1>

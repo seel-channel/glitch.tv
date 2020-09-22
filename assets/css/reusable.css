@@ -550,10 +550,6 @@ a:hover {
   }
 }
 
-.main_container {
-  width: 100%;
-}
-
 .cielo {
   width: 100%;
   height: 160px;
@@ -911,12 +907,18 @@ a:hover {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
+.pagination > .big_prev,
+.pagination > .big_next {
+  height: 62px;
+}
+
 .pagination > .listacapitulos {
   float: left;
   width: 240px;
   padding: 12px;
   color: white;
   font-weight: bold;
+  flex-direction: column;
   background-color: rgba(232, 116, 0, 0.9);
 }
 
