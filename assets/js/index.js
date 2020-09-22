@@ -84,9 +84,8 @@ function createCatalog(initIndex, show, IDInsert, database, toOpen) {
   createCard(cards, ifNull(IDInsert, "cards_grid"), openPage);
 }
 
-function loadVideoContent(database, hrefNotFound) {
+function loadVideoContent(database, hrefNotFound, name) {
   var found = false;
-  var name = window.location.search;
   var cleanName = name
     .replaceAll("?", "")
     .replaceAll("-", " ")
@@ -132,7 +131,7 @@ function setVideoSrc(src) {
     let episodeList = ``;
     for (const id in src) {
       let newID = parseInt(id) + 1;
-      episodeList += `<option id="${newID}" value="${src[id]}">Capítulo ${newID}</option>`;
+      episodeList += `<option id="${newID}" value="${src[id]}">Episodio ${newID}</option>`;
     }
     setHTML("select_episodes", episodeList);
   }
@@ -150,7 +149,20 @@ function setEpisodeNumber(episodeNumber) {
   );
   getElement("select_episodes").options.item(episodeNumber - 1).selected =
     "selected";
-  getElement("episode_title").innerHTML = "Capítulo " + episodeNumber;
+  getElement("episode_title").innerHTML = "Episodio " + episodeNumber;
+  var location = window.location.search;
+  if (location.includes("=")) {
+    location = location.split("=")[0] + "=episode-" + episodeNumber;
+  } else {
+    location = location + "=episode-" + episodeNumber;
+  }
+  history.pushState(
+    {
+      id: "homepage",
+    },
+    "",
+    location
+  );
   getElement("player").load();
 }
 
@@ -174,11 +186,27 @@ function prevEpisode() {
 
 // LOAD VIDEO PAGES
 function loadMovie() {
-  loadVideoContent(moviesDataBase(), "./catalogo_peliculas.html");
+  loadVideoContent(
+    moviesDataBase(),
+    "./catalogo_peliculas.html",
+    window.location.search
+  );
 }
 
 function loadAnime() {
-  loadVideoContent(animesDataBase(), "./catalogo_animes.html");
+  var location = window.location.search;
+  if (location.includes("=")) {
+    var splitted = location.split("=");
+    var episode = parseInt(splitted[1].replace("episode-", ""));
+    loadVideoContent(animesDataBase(), "./catalogo_animes.html", splitted[0]);
+    if (episode < getElement("select_episodes").length && episode > 0) {
+      setEpisodeNumber(episode);
+    } else {
+      setEpisodeNumber(1);
+    }
+  } else {
+    loadVideoContent(animesDataBase(), "./catalogo_animes.html", location);
+  }
 }
 
 // SHOW CATALOGS
