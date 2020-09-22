@@ -935,6 +935,12 @@ a:hover {
   color: black;
 }
 
+.footer_copyright {
+  width: calc(100% -4%);
+  text-align: end;
+  padding: 4% 4% 4% 0;
+}
+
 /* CIRCULAR LOADER */
 .circular_loader {
   width: 100%;
