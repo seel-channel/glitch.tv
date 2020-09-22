@@ -232,7 +232,21 @@ function animesDataBase() {
       agujero gigante cuyo fondo se dirige a las profundidades de la tierra. Dicho agujero 
       es conocido como el Abismo. Dentro del Abismo se encuentran misteriosos artefactos 
       abandonados y restos de una civilización avanzada que desapareció hace milenios`,
-      videoSrc: ["s1", "s2", "s3"],
+      videoSrc: [
+        "https://www63.o0-1.com/token=QTs4gmlZHTL_LcQ74WJHfw/1600761165/2806:102e::/36/f/18/0843c3be56c0f97f23c84755ff5de18f-720p.mp4",
+        "https://www710.o0-2.com/token=cOPEX1eWJovIW87r1a5rCw/1600761214/2806:102e::/33/4/bb/18033c11b02d56645c093353a1ad3bb4-720p.mp4",
+        "https://www172.o0-1.com/token=O_GrMB5O4frCZSCY1AopbA/1600761242/2806:102e::/35/b/3e/e1ddb6fe83ca728d60b32e2e57c663eb-720p.mp4",
+        "https://www906.o0-2.com/token=n0fB5Mw99yc2zhlvp7uuTQ/1600761265/2806:102e::/37/8/b7/3670d71969d357d9e97969bfc23e4b78-720p.mp4",
+        "https://www107.o0-1.com/token=Xpk4pQWy_lijSr3TgdXv2w/1600761294/2806:102e::/37/6/de/9a6fb0d476ddad270a7a3299aefacde6-720p.mp4",
+        "https://www1089.o0-3.com/token=OuSAj7ofZsQVuwpGK3O4dQ/1600761332/2806:102e::/36/8/83/2eb45e1ad89ec5ce24820a1085ddc838-720p.mp4",
+        "https://www122.o0-1.com/token=H03uVxhhkBAQta5SHcw54w/1600761365/2806:102e::/38/4/46/63dbdc4534c158ff985ef20dd2829464-720p.mp4",
+        "https://www606.o0-2.com/token=yz3Bwy_vJJM12_n54Cf1UQ/1600761400/2806:102e::/34/d/08/7a755ccfc3a27170f70f5e8ec797f08d-720p.mp4",
+        "https://www1721.o0-4.com/token=zOy1MaSl7OJJg5LUWdqlSg/1600761427/2806:102e::/37/0/fd/e961ed32d9237fb9385ecd7f4bf19fd0-720p.mp4",
+        "https://www949.o0-2.com/token=-1eMmtxNNVkt2Nl30lP_zg/1600761482/2806:102e::/36/7/cc/eb7bfc0f4a1d06d3cf6e783e1b86dcc7-720p.mp4",
+        "https://www2195.o0-5.com/token=MKBE1zgaNMtTkK4w2A5DUQ/1600761509/2806:102e::/34/3/90/c3e91deecbad6f0bc3ccf9356670d903-720p.mp4",
+        "https://www1639.o0-4.com/token=1vF4RL0SCIzKeS8ewCwt5w/1600761529/2806:102e::/38/1/b4/7529d90e66fe8419a063a2ef54f39b41-720p.mp4",
+        "https://www795.o0-2.com/token=pZY1K18hUoslTRI_kog5eA/1600761558/2806:102e::/37/b/10/f1778f212f7fba134c452e0922e3310b-720p.mp4",
+      ],
     },
     {
       title: "Tensei shitara slime datta ken",
