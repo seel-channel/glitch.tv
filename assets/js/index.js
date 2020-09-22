@@ -278,7 +278,7 @@ function animesDataBase() {
     },
     {
       title: "Tensei shitara slime datta ken",
-      subtitle: "Fantasía acción",
+      subtitle: "Fantasía, Acción",
       path: "./assets/animes/tensei_shitara_slime_datta_ken",
       year: "2018",
       sinopsis: `Un asalariado de 37 años que murió tras de ser apuñalado durante un robo. 
