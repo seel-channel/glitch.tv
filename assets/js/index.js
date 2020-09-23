@@ -149,7 +149,6 @@ function setEpisodeNumber(episodeNumber) {
   );
   getElement("select_episodes").options.item(episodeNumber - 1).selected =
     "selected";
-  getElement("episode_title").innerHTML = "Episodio " + episodeNumber;
   var location = window.location.search;
   if (location.includes("=")) {
     location = location.split("=")[0] + "=episode-" + episodeNumber;
