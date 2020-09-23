@@ -41,7 +41,7 @@
     <section
       id="principal_section"
       class="flex_column center_flex"
-      style="padding: 60px 0; display: none"
+      style="padding: 60px 0"
     >
       <div class="movie_info_container">
         <div class="flex_row">
@@ -64,9 +64,12 @@
       </div>
 
       <div class="video_container">
-        <video id="player" controls playsinline poster="">
-          <source id="video_source" type="video/mp4" />
-        </video>
+        <iframe
+          id="video_source"
+          class="full_width"
+          allowfullscreen="true"
+          importance="low"
+        ></iframe>
       </div>
     </section>
 

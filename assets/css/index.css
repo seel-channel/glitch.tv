@@ -254,8 +254,7 @@
 }
 
 .movie_poster img {
-  margin: 0;
-  padding: 0;
+  border: 0;
   width: 180px;
   height: 260px;
   border-radius: 6px;
@@ -295,9 +294,12 @@
 .video_container {
   width: 1000px;
   margin-top: 60px;
+  padding: 0;
 }
 
-.plyr {
+.video_container iframe {
+  border: none;
+  height: 500px;
   border-radius: 6px;
 }
 
@@ -324,6 +326,9 @@
     line-height: 22px;
     margin: 0 0 0 30px;
   }
+  .video_container iframe {
+    height: 350px;
+  }
 }
 
 @media screen and (max-width: 1060px) {
@@ -332,5 +337,17 @@
   }
   .video_container {
     width: calc(100% - 120px);
+  }
+}
+
+@media screen and (min-width: 501px) and (max-width: 600px) {
+  .video_container iframe {
+    height: 250px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .video_container iframe {
+    height: 220px;
   }
 }

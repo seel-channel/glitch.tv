@@ -106,10 +106,10 @@ function loadVideoContent(database, hrefNotFound, name) {
         "src",
         `${database[id].path}/poster.jpg`
       );
-      getElement("player").setAttribute(
-        "poster",
-        `${database[id].path}/banner.jpg`
-      );
+      // getElement("video_banner").setAttribute(
+      //   "src",
+      //   `${database[id].path}/banner.jpg`
+      // );
       clearLoader();
       document.title = `Glitch.TV - ${database[id].title}`;
       setVideoSrc(database[id].videoSrc);
@@ -126,7 +126,6 @@ function loadVideoContent(database, hrefNotFound, name) {
 function setVideoSrc(src) {
   if (src.length == 1) {
     getElement("video_source").setAttribute("src", src[0]);
-    getElement("player").load();
   } else {
     let episodeList = ``;
     for (const id in src) {
@@ -162,7 +161,6 @@ function setEpisodeNumber(episodeNumber) {
     "",
     location
   );
-  getElement("player").load();
 }
 
 function nextEpisode() {
@@ -327,7 +325,7 @@ function moviesDataBase() {
       nuevas habilidades ante el malvado Kingpin, un enorme demente 
       que puede abrir portales hacia otros universos.`,
       videoSrc: [
-        "https://www595.o0-2.com/token=wuvf3YV5dfgMUUnxaWsozw/1600741853/2806:102e::/36/d/46/9e57bcf4bb0956b8651715a2e04c646d-720p.mp4",
+        "https://drive.google.com/file/d/1KB9SvLLaiL2qjpAONRSASlGzGmy4Wc3G/preview",
       ],
     },
     {
@@ -342,9 +340,7 @@ function moviesDataBase() {
       y la nave queda destruida, dejando a Ryan y Matt atrapados 
       en el espacio, sin ninguna conexión con la Tierra y sin 
       esperanza de ser rescatados.`,
-      videoSrc: [
-        "https://00f74ba44bb63ecf1d73c6d4623ecce2308a4ae2a2-apidata.googleusercontent.com/download/storage/v1/b/kyaru/o/po3RMkPNa8z-umi.mp4?jk=AFshE3X5yuCcS3-mvWDVpiOeWfsxjYrv4k3lT96Yw8-Lpc8aek7GAgF_Te03bMTkHINL17YzVTOujGJlyisHlvsb6kKjxBvth_lKevznh9itDvSbzd0UFanBvCi8DI_kgLSKOKCoFbcvTIPRBKmIPPmOzwsF77Ue1YodUBKzWpZXcgEZjNz_DaseO_hmFtvfhs23OQd8aqka_NVtf7JezwTtOuOOpbq9rIMKwS8BiPFbaizu31vgmuksuuS0gkBRUK0OOoBZtzVllzuOECfxGZP8sJcqXJzxr1uDBDIUr2_qy4xTfd9NCjB7_GUA-_73MGMuXLP1g79_x8yzn2bZwJOACHeMd20YE6F1EM8vutWuSJ0S8AVJmEM795AEGEVEN0YbmNPiWCFnPaN-_GI2A4WBjkCuwNJErreUs8BnzZyr-59w6fWhbI8XOQ3fS8fbae7tdxixJNhJvnaSUfboHpK2fRkTXd-kuuCe-UXxndtznJCEqb_xy8cJLfPgNLe3ZykFpDlEQy-M-sRJD-hyrdCifGIGi4I_Z-tw-E-eQjQWgvJlzIx8HNAs72ALGN_11tm-XWidhcZfjuiONXAxipzzBPI9K7bHPKn5I3OKLjTzh0FS6wjk5cGV41Y4r5rkjZtKjCgNfksLFwa7NYUeNfm-Z_ejg_HRRQEckWVehe19LRSUFWGQVhs-foE0GblgpCTBJOqx5sFFUXmks00Vkme0yzQiiyPH7Agj8y_ezciLKMWraSwZXtNNTkfIctEYKggzH0zJu2S0w-gcMujuo9VTJcDwIF3S0I_PK5qGGEeZCgFGkc9TAr70U4Z2EKxj3XtlshKebtZfZNXIBvv04IF6zb5CHpJis3LmwEeNsiLrPrip6ACKvS6y0YORnDSnI3qzo-bGCVEK&isca=1",
-      ],
+      videoSrc: [""],
     },
     {
       title: "La torre oscura",
@@ -359,7 +355,7 @@ function moviesDataBase() {
       diferentes en los que la realidad y la irrealidad se mezclan,
       representa la lucha definitiva del bien contra el mal.`,
       videoSrc: [
-        "https://www1114.o0-3.com/token=knQMvaslQnu-10IhH_JNmg/1600744319/2806:102e::/108/6/7d/f41ead5a618b091c9d8f9be0d7e7b7d6-720p.mp4",
+        "https://drive.google.com/file/d/1QIe9v_CeiGr5dpiH3NtIZ4rODbtimI6_/preview",
       ],
     },
     {
@@ -371,7 +367,7 @@ function moviesDataBase() {
       diferencias para proteger a una joven elfa hembra 
       y a una reliquia del pensamiento.`,
       videoSrc: [
-        "https://www633.o0-2.com/token=x1FxlPWNJVNDqPJLQqqqtA/1600744482/2806:102e::/109/1/e9/c73c3d908e50848f791131b6cf6f8e91-720p.mp4",
+        "https://drive.google.com/file/d/1UKhDYqmRK-VYkUqOaQE_2dI_KWuPQUw4/preview",
       ],
     },
     {
@@ -385,7 +381,7 @@ function moviesDataBase() {
       llevan a descubrir que ha sido designado para encabezar
       la lucha contra una fuerza oscura y sobrenatural.`,
       videoSrc: [
-        "https://www176.o0-1.com/token=CApjZLEVGFRIkGHuuIuctw/1600744619/2806:102e::/25/a/39/cf367bab41098b154398ebb0d832539a-720p.mp4",
+        "https://drive.google.com/file/d/1yyZzWRio7kMp67xaNDZUgX3kuD5anLSt/preview",
       ],
     },
     {
@@ -398,7 +394,7 @@ function moviesDataBase() {
       se dan cuenta de que esa forma de vida está mucho más evolucionada 
       y es infinitamente más aterradora de lo que habían supuesto.`,
       videoSrc: [
-        "https://www1822.o0-4.com/token=z8BztSf3YeiaN8PA56jEVA/1600744739/2806:102e::/7/e/0c/dd14c318ac47c68f3f4d4c0c3157b0ce-720p.mp4",
+        "https://drive.google.com/file/d/1WTvyq8Dik3V8T8FRViR2c1aoJjqTl7bL/preview",
       ],
     },
     {
@@ -410,9 +406,7 @@ function moviesDataBase() {
       plaga de zombies invade la apacible población inglesa de Meryton. 
       Bennet y sus hermanas, que han sido entrenadas por su padre en
       las artes marciales, se disponen a combatir contra los muertos vivientes.`,
-      videoSrc: [
-        "https://www579.o0-2.com/token=wFQ_4uwyU-vHIFyfZCdQGA/1600744805/2806:102e::/109/b/52/0de7e1e3605ab9c207a12a34426f652b-720p.mp4",
-      ],
+      videoSrc: [""],
     },
     {
       title: "Watchmen",
@@ -423,7 +417,7 @@ function moviesDataBase() {
       un vigilante enmascarado descubre un plan para desacreditar 
       y destruir a los superhéroes del mundo.`,
       videoSrc: [
-        "https://www2078.o0-5.com/token=nwZOaxxi-2c60wAi2d1png/1600744897/2806:102e::/18/0/f7/fd9ba494e23e4b7fb01ba2a081608f70-720p.mp4",
+        "https://drive.google.com/file/d/1EGh3gUhz5ndx4vt8tUKrJvodDKBR-EOx/preview",
       ],
     },
     {
@@ -438,7 +432,7 @@ function moviesDataBase() {
       imaginario dejó oculto en su obra. No obstante, hay gente muy 
       peligrosa compitiendo contra él.`,
       videoSrc: [
-        "https://www892.o0-2.com/token=Qr_MgHgkMciYUgpGJey0Pw/1600744963/2806:102e::/17/6/18/b58b78ad6381936608f1bdba239ca186-720p.mp4",
+        "https://drive.google.com/file/d/1mMX3Gf0vYGXSRZ_5QQ4M-64I5gvLwyQE/preview",
       ],
     },
     {
@@ -453,19 +447,20 @@ function moviesDataBase() {
       repararla a tiempo para salvar a las 5 000 personas que permanecen
       hibernando, y a sí mismos.`,
       videoSrc: [
-        "https://www376.o0-1.com/token=8ZG42tkofVp3RvSqT5uUsQ/1600745030/2806:102e::/108/3/13/9658e9c625c6973e7ee0586bcf164133-720p.mp4",
+        "https://drive.google.com/file/d/13-aQNQeu0mpg7-GEjABuumfOCx8dgG9h/preview",
       ],
     },
     {
-      title: "Scott Pilgrim",
+      title: "Valerian",
       subtitle: "Acción, Fantasía",
-      path: "./assets/movies/scottpilgrim",
-      year: "2010",
-      sinopsis: `Después de conocer a la mujer de sus sueños, 
-      Scott Pilgrim debe enfrentarse a un ejército de exparejas 
-      que quieren deshacerse de él.`,
+      path: "./assets/movies/valerian",
+      year: "2017",
+      sinopsis: `En el siglo XXVIII, los agentes terrícolas Valerian y Laureline son enviadas por el ministro de 
+      Defensa a explorar un nuevo mundo que está al borde de una guerra civil para comprobar si son una amenaza 
+      potencial contra la Tierra. La situación política del planeta, divido entre una aristocracia decadente, 
+      un pueblo exaltado y unos sabios astutos y manipuladores les obligará a tomar partido por uno de los dos bandos.`,
       videoSrc: [
-        "https://www1080.o0-3.com/token=sDrveKtyMQFZHizoEV-r7w/1600745081/2806:102e::/19/c/99/76611287755f1e4fb5c223121ad5099c-720p.mp4",
+        "https://drive.google.com/file/d/1OfhleCxzhCVPevbZ9J9mxX1qEHUEyopO/preview",
       ],
     },
     {
@@ -477,7 +472,7 @@ function moviesDataBase() {
       Mad Max se une a Furiosa, una comandante fugitiva, y su banda, quienes están 
       tratando de escapar de un señor de la guerra.`,
       videoSrc: [
-        "https://www2183.o0-5.com/token=NiHGANnSi8fMeGImekPHuw/1600745132/2806:102e::/19/1/17/9b00a31d95173c04fbf486d0b0366171-720p.mp4",
+        "https://drive.google.com/file/d/1A3FJ1j2doGTXcqm47jsa1PgAei7j9BzB/preview",
       ],
     },
     {
@@ -488,7 +483,7 @@ function moviesDataBase() {
       sinopsis: `En el año 2154, los ricos viven en una cómoda y lujosa estación 
       espacial mientras que los pobres tienen que vivir en las ruinas de la Tierra superpoblada.`,
       videoSrc: [
-        "https://www102.o0-1.com/token=JlTKYSuQs-86oP5skx1xGQ/1600745197/2806:102e::/19/e/b7/d81713e239b00633491cd625ffae7b7e-720p.mp4",
+        "https://drive.google.com/file/d/1kMlZs5f_boJrV5GLIdq4ApCReRDM9wqS/preview",
       ],
     },
     {
@@ -499,8 +494,17 @@ function moviesDataBase() {
       sinopsis: `El Imperio va a construir una estación espacial capaz de destruir planetas,
        conocida como la Estrella de la Muerte. Los rebeldes, conocedores de esto, se embarcan 
        en una misión extraordinaria: robar los planos y sabotear la estación.`,
+      videoSrc: [""],
+    },
+    {
+      title: "Máquinas mortales",
+      subtitle: "Acción, Ciencia ficción",
+      path: "./assets/movies/maquinasmortales",
+      year: "2018",
+      sinopsis: `En un futuro apocalíptico, una mujer misteriosa debe destruir Londres,
+       una ciudad gigantesca que se transporta sobre ruedas devorando, a su paso, los recursos de otras ciudades más pequeñas.`,
       videoSrc: [
-        "https://www1113.o0-3.com/token=JXiXChAB3BeKv81oAmbDQw/1600745261/2806:102e::/22/d/ad/c646fd5862d779c5a0dc33197150cadd-720p.mp4",
+        "https://drive.google.com/file/d/1Arl_A8XpWHay7D5RpAqGMEb6aWUKnnGQ/preview",
       ],
     },
     {
