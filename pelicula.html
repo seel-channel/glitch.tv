@@ -4,9 +4,8 @@
     <meta charset="UTF-8" />
     <title>Cargando...</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="./assets/css/plyr.css" />
-    <link rel="stylesheet" href="./assets/css/index.css" />
-    <link rel="stylesheet" href="./assets/css/reusable.css" />
+    <link id="index_css" rel="stylesheet" href="./assets/css/index.css" />
+    <link id="reusable_css" rel="stylesheet" href="./assets/css/reusable.css" />
 
     <style>
       body {
@@ -19,7 +18,7 @@
     </style>
   </head>
 
-  <body onload="loadMovie()">
+  <body onload="loadScript()">
     <header class="content_nav">
       <a
         href="./index.html"
@@ -81,8 +80,14 @@
       © 2020
     </footer>
 
-    <script type="text/javascript" src="./assets/js/plyr.js"></script>
-    <script type="text/javascript" src="./assets/js/index.js"></script>
-    <script type="text/javascript" src="./assets/js/plyrplayer.js"></script>
+    <script id="index_js" src="./assets/js/index.js"></script>
+
+    <script>
+      function loadScript() {
+        let script = document.getElementById("index_js");
+        script.setAttribute("src", "./assets/js/index.js?v=" + Math.random());
+        loadMovie();
+      }
+    </script>
   </body>
 </html>
